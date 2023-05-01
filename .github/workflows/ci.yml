@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test:
+    name: Test
+    # Note: The TLS tests are rather finicky. It seems that openssl 3 encrypts certificates differently than older
+    # openssl and it does it in a way Go and/or pgx ssl handling code can't handle. So stick with Ubuntu 20.04 until
+    # that is figured out.
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        go-version: ["1.19", "1.20"]
+
+    steps:
+    - name: Set up Go ${{ matrix.go-version }}
+      uses: actions/setup-go@v3
+      with:
+        go-version: ${{ matrix.go-version }}
+
+    - name: Check out code into the Go module directory
+      uses: actions/checkout@v3
+
+    - name: Test
+      run: go test -v .
