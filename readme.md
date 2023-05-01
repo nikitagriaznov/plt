@@ -1,3 +1,4 @@
+[![CI](https://github.com/nikitagriaznov/plt/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/nikitagriaznov/plt/actions/workflows/ci.yml)
 # plt - Svg Plot Making Library for Go
 plt is a simple to use and low weight library to make a svg plot
 It contains two entry points:
