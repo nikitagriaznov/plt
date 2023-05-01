@@ -1,4 +1,5 @@
-// Copyright 2023 Gryaznov Nikita Licensed under the Apache License, Version 2.0 (the «License»);
+// Package svgPlot Copyright 2023 Gryaznov Nikita Licensed under the Apache
+// License, Version 2.0 (the «License»);
 package svgPlot
 
 import (
@@ -95,7 +96,7 @@ func TestDrawAng(t *testing.T) {
 			t.Errorf("%sTest %d failed%s\tgot: %s, want: %s\n", red, testId, normal, t1.err, err)
 		} else if plot != t1.plot {
 			t.Errorf("%sTest %d failed%s\tgot: %s, want: %s\n", red, testId, normal, t1.plot, plot)
-			os.WriteFile(fmt.Sprintf("test%d.svg", testId), []byte(plot), 777)
+			_ = os.WriteFile(fmt.Sprintf("test%d.svg", testId), []byte(plot), 777)
 		} else {
 			t.Logf("%sTest %d seccess%s\t%s\n", green, testId, normal, "")
 		}
@@ -243,7 +244,7 @@ font-size: 12pt;
 			t.Errorf("%sTest %d failed%s\tgot: %s, want: nil\n", red, testId, normal, err)
 		} else if plot != check {
 			t.Errorf("%sTest %d failed%s\tgot: %s, want: %s\n", red, testId, normal, plot, check)
-			os.WriteFile(fmt.Sprintf("test%d.svg", testId), []byte(plot), 777)
+			_ = os.WriteFile(fmt.Sprintf("test%d.svg", testId), []byte(plot), 777)
 		} else {
 			t.Logf("%sTest %d seccess%s\t%s\n", green, testId, normal, "")
 		}
@@ -313,7 +314,7 @@ font-size: 12pt;
 			t.Errorf("%sTest %d failed%s\tgot: %s, want: nil\n", red, testId, normal, err)
 		} else if plot != check {
 			t.Errorf("%sTest %d failed%s\tgot: %s, want: %s\n", red, testId, normal, plot, check)
-			os.WriteFile(fmt.Sprintf("test%d.svg", testId), []byte(plot), 777)
+			_ = os.WriteFile(fmt.Sprintf("test%d.svg", testId), []byte(plot), 777)
 		} else {
 			t.Logf("%sTest %d seccess%s\t%s\n", green, testId, normal, "")
 		}
@@ -383,7 +384,7 @@ font-size: 12pt;
 			t.Errorf("%sTest %d failed%s\tgot: %s, want: nil\n", red, testId, normal, err)
 		} else if plot != check {
 			t.Errorf("%sTest %d failed%s\tgot: %s, want: %s\n", red, testId, normal, plot, check)
-			os.WriteFile(fmt.Sprintf("test%d.svg", testId), []byte(plot), 777)
+			_ = os.WriteFile(fmt.Sprintf("test%d.svg", testId), []byte(plot), 777)
 		} else {
 			t.Logf("%sTest %d seccess%s\t%s\n", green, testId, normal, "")
 		}
@@ -436,7 +437,7 @@ font-size: 12pt;
 			t.Errorf("%sTest %d failed%s\tgot: %s, want: nil\n", red, testId, normal, err)
 		} else if plot != check {
 			t.Errorf("%sTest %d failed%s\tgot: %s, want: %s\n", red, testId, normal, plot, check)
-			os.WriteFile(fmt.Sprintf("TestDrawAngularFrom0-%d.svg", testId), []byte(plot), 777)
+			_ = os.WriteFile(fmt.Sprintf("TestDrawAngularFrom0-%d.svg", testId), []byte(plot), 777)
 		} else {
 			t.Logf("%sTest %d seccess%s\t%s\n", green, testId, normal, "")
 		}
@@ -486,7 +487,7 @@ font-size: 12pt;
 			t.Errorf("%sTest %d failed%s\tgot: %s, want: nil\n", red, testId, normal, err)
 		} else if plot != check {
 			t.Errorf("%sTest %d failed%s\tgot: %s, want: %s\n", red, testId, normal, plot, check)
-			os.WriteFile(fmt.Sprintf("TestDrawAngularFrom0-%d.svg", testId), []byte(plot), 777)
+			_ = os.WriteFile(fmt.Sprintf("TestDrawAngularFrom0-%d.svg", testId), []byte(plot), 777)
 		} else {
 			t.Logf("%sTest %d seccess%s\t%s\n", green, testId, normal, "")
 		}
@@ -536,7 +537,7 @@ font-size: 12pt;
 			t.Errorf("%sTest %d failed%s\tgot: %s, want: nil\n", red, testId, normal, err)
 		} else if plot != check {
 			t.Errorf("%sTest %d failed%s\tgot: %s, want: %s\n", red, testId, normal, plot, check)
-			os.WriteFile(fmt.Sprintf("TestDrawAngularFrom0-%d.svg", testId), []byte(plot), 777)
+			_ = os.WriteFile(fmt.Sprintf("TestDrawAngularFrom0-%d.svg", testId), []byte(plot), 777)
 		} else {
 			t.Logf("%sTest %d seccess%s\t%s\n", green, testId, normal, "")
 		}
