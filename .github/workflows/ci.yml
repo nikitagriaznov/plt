@@ -30,5 +30,8 @@ jobs:
     - name: Test
       run: go test -v .
       
+    - name: CheckCoverage
+      run: go test . -coverprofile cover.out && go tool cover -func cover.out
+      
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v3
