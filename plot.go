@@ -1,5 +1,5 @@
-// Package svgPlot Copyright 2023 Gryaznov Nikita Licensed under the Apache
-// License, Version 2.0 (the «License»);
+// Package svgPlot Copyright 2023 Gryaznov Nikita
+// Licensed under the Apache License, Version 2.0
 package svgPlot
 
 import (
@@ -269,14 +269,14 @@ func drawAng(height, width, xDivisionsQty, yDivisionsQty uint, x, y []float64, x
 	)
 
 	// check input
-	if xMin >= xMax {
-		err = errors.New("xMin should me less then xMax")
-		return
-	}
-	if yMin >= yMax {
-		err = errors.New("yMin should me less then yMax")
-		return
-	}
+	//if xMin >= xMax {
+	//	err = errors.New("xMin should me less then xMax")
+	//	return
+	//}
+	//if yMin >= yMax {
+	//	err = errors.New("yMin should me less then yMax")
+	//	return
+	//}
 	if len(xName) > 6 {
 		err = errors.New("xName max len is 6")
 		return

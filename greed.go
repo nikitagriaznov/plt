@@ -1,5 +1,5 @@
-// Package svgPlot Copyright 2023 Gryaznov Nikita Licensed under the Apache
-// License, Version 2.0 (the «License»);
+// Package svgPlot Copyright 2023 Gryaznov Nikita
+// Licensed under the Apache License, Version 2.0
 package svgPlot
 
 import (
@@ -50,7 +50,7 @@ func makeArr(min float64, max float64, divisionsQty uint) (result []string, l fl
 	// count scale
 	l = max - min
 	order := getExp(l)
-	// search for right step
+	// search for the right step
 	stp := stepArr[0] * order
 	qty := l / stp
 	for i := 1; i < len(stepArr); i++ {
@@ -64,16 +64,16 @@ func makeArr(min float64, max float64, divisionsQty uint) (result []string, l fl
 	var tmp float64
 	if max > 0 && min <= 0 {
 		minQty := math.Ceil(math.Abs(min) / stp)
-		result = make([]string, int(math.Ceil(math.Abs(max)/stp)+minQty)+1)
+		result = make([]string, 1, int(math.Ceil(math.Abs(max)/stp)+minQty)+2)
 		tmp = minQty * stp * -1
 	} else if max > 0 && min >= 0 {
 		minQty := math.Floor(math.Abs(min) / stp)
-		result = make([]string, int(math.Ceil(math.Abs(max)/stp)+minQty)+1)
+		result = make([]string, 1, int(math.Ceil(math.Abs(max)/stp)+minQty)+2)
 		tmp = minQty * stp
 	} else /*if max <= 0 && min < 0*/ {
 		minQty := math.Ceil(math.Abs(min) / stp)
-		result = make([]string, int(math.Floor(math.Abs(max)/stp)+minQty)+1)
-		tmp = minQty * stp
+		result = make([]string, 1, int(math.Floor(math.Abs(max)/stp)+minQty)+2)
+		tmp = minQty * stp * -1
 	}
 	min = tmp
 	convert := func(num float64) string {
@@ -84,53 +84,53 @@ func makeArr(min float64, max float64, divisionsQty uint) (result []string, l fl
 		}
 	}
 	result[0] = convert(tmp)
-	j := 1
 	for {
 		tmp += stp
-		result[j] = convert(tmp)
+		result = append(result, convert(tmp))
 		if tmp >= max {
 			max = tmp
 			break
 		}
-		j++
 	}
 	l = max - min
 	zeroPosition = -int(min / stp)
 	return
 }
 
+func getRuneW(r uint8) (w float64) {
+	switch r {
+	case 'c', 's', 'v', 'x', 'y', 'z', 'k', 'J':
+		w = 6
+	case 'i', 'l', 'j':
+		w = 2.67
+	case '.', '/', ',', 'f', 't', 'I':
+		w = 3.34
+	case '-', 'r':
+		w = 4
+	case 'm', 'M':
+		w = 10
+	case 'w', 'C', 'D', 'H', 'N', 'R':
+		w = 8.67
+	case 'W':
+		w = 11.33
+	case 'G', 'O', 'Q':
+		w = 9.34
+	case 'A', 'B', 'E', 'P', 'S', 'V', 'X', 'Y', 'K':
+		w = 8.01
+	case 'Z', 'T', 'F':
+		w = 7.34
+	case '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'd', 'e', 'g', 'h', 'n', 'o', 'p', 'q', 'L':
+		w = 6.68
+	default:
+		w = 5
+	}
+	return
+}
+
 // getWordLen returns width of number as a text with Arial font
 func getWordLen(num string) (width int) {
 	var tmp float64
-	getRuneW := func(r uint8) (w float64) {
-		switch r {
-		case 'c', 's', 'v', 'x', 'y', 'z', 'k', 'J':
-			w = 6
-		case 'i', 'l', 'j':
-			w = 2.67
-		case '.', '/', ',', 'f', 't', 'I':
-			w = 3.34
-		case '-', 'r':
-			w = 4
-		case 'm', 'M':
-			w = 10
-		case 'w', 'C', 'D', 'H', 'N', 'R':
-			w = 8.67
-		case 'W':
-			w = 11.33
-		case 'G', 'O', 'Q':
-			w = 9.34
-		case 'A', 'B', 'E', 'P', 'S', 'V', 'X', 'Y', 'K':
-			w = 8.01
-		case 'Z', 'T', 'F':
-			w = 7.34
-		case '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'd', 'e', 'g', 'h', 'n', 'o', 'p', 'q', 'L':
-			w = 6.68
-		default:
-			w = 10
-		}
-		return
-	}
+
 	for i := 0; i < len(num); i++ {
 		tmp += getRuneW(num[i])
 	}

@@ -1,8 +1,12 @@
-// Package svgPlot Copyright 2023 Gryaznov Nikita Licensed under the Apache
-// License, Version 2.0 (the «License»);
+// Package svgPlot Copyright 2023 Gryaznov Nikita
+// Licensed under the Apache License, Version 2.0
 package svgPlot
 
-import "testing"
+import (
+	"errors"
+	"fmt"
+	"testing"
+)
 
 func TestGetMinMax(t *testing.T) {
 	var testId uint
@@ -11,7 +15,7 @@ func TestGetMinMax(t *testing.T) {
 		min, max, err := getMinMax(in)
 		if isErr {
 			if err != nil {
-				t.Logf("%sTest %d seccess%s\t%s\n", green, testId, normal, "")
+				t.Logf("%sTest %d  success%s\t%s\n", green, testId, normal, "")
 			} else {
 				t.Errorf("%sTest %d failed%s\tgot: nil, want: error\n", red, testId, normal)
 			}
@@ -23,7 +27,7 @@ func TestGetMinMax(t *testing.T) {
 			} else if max != rightMax {
 				t.Errorf("%sTest %d failed%s\tgot: %G, want: %G\n", red, testId, normal, rightMax, max)
 			} else {
-				t.Logf("%sTest %d seccess%s\t%s\n", green, testId, normal, "")
+				t.Logf("%sTest %d  success%s\t%s\n", green, testId, normal, "")
 			}
 		}
 		testId++
@@ -39,7 +43,7 @@ func TestGetExp(t *testing.T) {
 		res := getExp(in)
 		ok := rightOut == res
 		if ok {
-			t.Logf("%sTest %d seccess%s\t%s\n", green, testId, normal, "")
+			t.Logf("%sTest %d  success%s\t%s\n", green, testId, normal, "")
 		} else {
 			t.Errorf("%sTest %d failed%s\tgot: %G, want: %G\n", red, testId, normal, rightOut, res)
 		}
@@ -65,26 +69,30 @@ func TestMakeArr(t *testing.T) {
 		return true
 	}
 	var testId uint64
-	test := func(min, max float64, divQty uint, rightArr []string, rightLen float64, rightZero int) {
+	test := func(min, max float64, divQty uint, rightArr []string, rightLen float64, rightZero int, err error) {
 		t.Logf("Test %d\tstart", testId)
-		res, l, z, err := makeArr(min, max, divQty)
+		res, l, z, err1 := makeArr(min, max, divQty)
 		ok := equal(rightArr, res)
-		if err != nil {
-			t.Errorf("%sTest %d failed%s\t%s", red, testId, normal, err)
+		if fmt.Sprint(err1) != fmt.Sprint(err) {
+			t.Errorf("%sTest %d failed%s\tgot: %s, want: %s\n", red, testId, normal, err1, err)
 		} else if !ok {
-			t.Errorf("%sTest %d failed%s\tgot: %s, want: %s\n", red, testId, normal, rightArr, res)
+			t.Errorf("%sTest %d failed%s\twant: %s, got: %s\n", red, testId, normal, rightArr, res)
 		} else if l != rightLen {
 			t.Errorf("%sTest %d failed%s\tgot: %f, want: %f\n", red, testId, normal, rightLen, l)
 		} else if z != rightZero {
 			t.Errorf("%sTest %d failed%s\tgot: %d, want: %d\n", red, testId, normal, rightZero, z)
 		} else {
-			t.Logf("%sTest %d seccess%s\t%s\n", green, testId, normal, "")
+			t.Logf("%sTest %d  success%s\t%s\n", green, testId, normal, "")
 		}
 		testId++
 	}
-	test(0, 7, 10, []string{"0", "1", "2", "3", "4", "5", "6", "7"}, 7, 0)
-	test(-5, 9, 10, []string{"-6", "-4", "-2", "0", "2", "4", "6", "8", "10"}, 16, 3)
-	test(-5, 9, 5, []string{"-5", "-2.5", "0", "2.5", "5", "7.5", "10"}, 15, 2)
+	test(0, 7, 10, []string{"0", "1", "2", "3", "4", "5", "6", "7"}, 7, 0, nil)
+	test(-5, 9, 0, []string{"-6", "-4", "-2", "0", "2", "4", "6", "8", "10"}, 16, 3, nil)
+	test(-5, 9, 5, []string{"-5", "-2.5", "0", "2.5", "5", "7.5", "10"}, 15, 2, nil)
+	test(-5, -1, 5, []string{"-5", "-4", "-3", "-2", "-1"}, 4, 5, nil)
+	test(-5, -1, 0, []string{"-5", "-4.5", "-4", "-3.5", "-3", "-2.5", "-2", "-1.5", "-1"}, 4, 10, nil)
+	test(-5, -1, 10, []string{"-5", "-4.5", "-4", "-3.5", "-3", "-2.5", "-2", "-1.5", "-1"}, 4, 10, nil)
+	test(5, 0, 0, []string{}, 0, 0, errors.New("min>=max"))
 }
 func TestGetWordLen(t *testing.T) {
 	var testId uint64
@@ -93,7 +101,7 @@ func TestGetWordLen(t *testing.T) {
 		res := getWordLen(word)
 		ok := rightLen == res
 		if ok {
-			t.Logf("%sTest %d seccess%s\t%s\n", green, testId, normal, "")
+			t.Logf("%sTest %d  success%s\t%s\n", green, testId, normal, "")
 		} else {
 			t.Errorf("%sTest %d failed%s\tgot: %d, want: %d\n", red, testId, normal, rightLen, res)
 		}
@@ -104,6 +112,15 @@ func TestGetWordLen(t *testing.T) {
 	test("0.83", 24)
 	test("0.123", 31)
 	test("qty", 17)
+	test("qwerty", 36)
+	test("uiop", 22)
+	test("asdfgh", 37)
+	test("zxcvbn", 38)
+	test("jklm", 22)
+	test("1234567890", 67)
+	test(",.-", 11)
+	test("Приает", 60)
+	test("", 0)
 }
 func TestMakeGreed(t *testing.T) {
 	type testType struct {
@@ -121,7 +138,7 @@ func TestMakeGreed(t *testing.T) {
 		t.Logf("Test %d start", testId)
 		greed, x0, y0, gradX, gradY, err := makeGreed(t1.height, t1.width, t1.xNumArray, t1.yNumArray, t1.xLen, t1.yLen, t1.xZeroPos, t1.yZeroPos)
 
-		if err != t1.err {
+		if fmt.Sprint(err) != fmt.Sprint(t1.err) {
 			t.Errorf("%sTest %d failed%s\tgot: %s, want: %s\n", red, testId, normal, t1.err, err)
 		} else if greed != t1.greed {
 			t.Errorf("%sTest %d failed%s\tgot: %s, want: %s\n", red, testId, normal, t1.greed, greed)
@@ -134,7 +151,7 @@ func TestMakeGreed(t *testing.T) {
 		} else if gradY != t1.gradY {
 			t.Errorf("%sTest %d failed%s\tgot: %g, want: %g\n", red, testId, normal, t1.gradY, gradY)
 		} else {
-			t.Logf("%sTest %d seccess%s\t%s\n", green, testId, normal, "")
+			t.Logf("%sTest %d  success%s\t%s\n", green, testId, normal, "")
 		}
 		testId++
 	}
@@ -206,8 +223,98 @@ font-size: 12pt;
 			gradX: 0.026525198938992044,
 			gradY: 0.053475935828877004,
 		},
+		{
+			height:    50,
+			width:     400,
+			xNumArray: []string{"-5", "-4", "-3", "-2", "-1", "0", "1", "2", "3", "4", "4", "5"},
+			yNumArray: []string{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"},
+			xLen:      10,
+			yLen:      10,
+			xZeroPos:  5,
+			yZeroPos:  0,
+			x0:        0,
+			y0:        0,
+			gradX:     0,
+			gradY:     0,
+			err:       errors.New("height is too small"),
+		},
+		{
+			height:    400,
+			width:     50,
+			xNumArray: []string{"-5", "-4", "-3", "-2", "-1", "0", "1", "2", "3", "4", "4", "5"},
+			yNumArray: []string{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"},
+			xLen:      10,
+			yLen:      10,
+			xZeroPos:  5,
+			yZeroPos:  0,
+			x0:        0,
+			y0:        0,
+			gradX:     0,
+			gradY:     0,
+			err:       errors.New("width is too small"),
+		},
+		{
+			height:    400,
+			width:     50,
+			xNumArray: []string{},
+			yNumArray: []string{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"},
+			xLen:      10,
+			yLen:      10,
+			xZeroPos:  5,
+			yZeroPos:  0,
+			x0:        0,
+			y0:        0,
+			gradX:     0,
+			gradY:     0,
+			err:       errors.New("empty xNumArray"),
+		},
+		{
+			height:    400,
+			width:     50,
+			xNumArray: []string{"-5", "-4", "-3", "-2", "-1", "0", "1", "2", "3", "4", "4", "5"},
+			yNumArray: []string{},
+			xLen:      10,
+			yLen:      10,
+			xZeroPos:  5,
+			yZeroPos:  0,
+			x0:        0,
+			y0:        0,
+			gradX:     0,
+			gradY:     0,
+			err:       errors.New("empty yNumArray"),
+		},
 	}
 	for _, testCase := range testArr {
 		test(testCase)
 	}
+}
+func TestGerRuneW(t *testing.T) {
+	var testId uint64
+	test := func(r uint8, l float64) {
+		t.Logf("Test %d\tstart", testId)
+		l1 := getRuneW(r)
+		if l1 != l {
+			t.Errorf("%sTest %d failed%s\tgot: %f, want: %f\n", red, testId, normal, l1, l)
+		} else {
+			t.Logf("%sTest %d  success%s\t%s\n", green, testId, normal, "")
+		}
+		testId++
+	}
+	test('d', 6.68)
+	test('3', 6.68)
+	test('c', 6)
+	test('i', 2.67)
+	test('.', 3.34)
+	test('-', 4)
+	test('m', 10)
+	test('w', 8.67)
+	test(0, 5)
+	test('W', 11.33)
+	test('G', 9.34)
+	test('A', 8.01)
+	test('Z', 7.34)
+	test('3', 6.68)
+	test('3', 6.68)
+	test('3', 6.68)
+	test('3', 6.68)
 }
