@@ -93,6 +93,7 @@ func TestMakeArr(t *testing.T) {
 	test(-5, -1, 0, []string{"-5", "-4.5", "-4", "-3.5", "-3", "-2.5", "-2", "-1.5", "-1"}, 4, 10, nil)
 	test(-5, -1, 10, []string{"-5", "-4.5", "-4", "-3.5", "-3", "-2.5", "-2", "-1.5", "-1"}, 4, 10, nil)
 	test(5, 0, 0, []string{}, 0, 0, errors.New("min>=max"))
+	test(1, 7, 7, []string{"1", "2", "3", "4", "5", "6", "7"}, 6, -1, nil)
 }
 func TestGetWordLen(t *testing.T) {
 	var testId uint64
