@@ -32,11 +32,11 @@ func (s Style) DrawAngularFloat64(X, Y []float64) (plot string, err error) {
 	)
 
 	// get min & max values
-	yMin, yMax, err = getMinMax(X)
+	yMin, yMax, err = getMinMax(Y)
 	if err != nil {
 		return
 	}
-	xMin, xMax, err = getMinMax(Y)
+	xMin, xMax, err = getMinMax(X)
 	if err != nil {
 		return
 	}
@@ -69,7 +69,7 @@ func (s Style) DrawAngularInt(X, Y []int) (plot string, err error) {
 
 // DrawAngularInt64 make the most compact plot with strait lines between points
 // X and Y is a parallel arrays of point coordinates
-func (s Style) DrawAngularInt64(X, Y []int) (plot string, err error) {
+func (s Style) DrawAngularInt64(X, Y []int64) (plot string, err error) {
 	var (
 		xMin, xMax, yMin, yMax float64
 		x1, y1                 []float64
@@ -268,15 +268,6 @@ func drawAng(height, width, xDivisionsQty, yDivisionsQty uint, x, y []float64, x
 		xNums, yNums                     []string
 	)
 
-	// check input
-	//if xMin >= xMax {
-	//	err = errors.New("xMin should me less then xMax")
-	//	return
-	//}
-	//if yMin >= yMax {
-	//	err = errors.New("yMin should me less then yMax")
-	//	return
-	//}
 	if len(xName) > 6 {
 		err = errors.New("xName max len is 6")
 		return
