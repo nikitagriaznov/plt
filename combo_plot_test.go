@@ -932,9 +932,186 @@ font-size: 12pt;
 					NameOfX:       "",
 					NameOfY:       "",
 				},
+				angular: []pointArr{
+					{
+						X: []float64{1},
+						Y: []float64{},
+					},
+				},
 			},
-			err: errors.New("min>=max"),
+			err: errors.New("empty input"),
 		},
+		{
+			dataIn: Plot{
+				style: Style{
+					TotalHeight:   200,
+					TotalWidth:    200,
+					XDivisionsQty: 12,
+					YDivisionsQty: 12,
+					NameOfX:       "",
+					NameOfY:       "",
+				},
+				angular: []pointArr{
+					{
+						X: []float64{},
+						Y: []float64{1},
+					},
+				},
+			},
+			err: errors.New("empty input"),
+		},
+		{
+			dataIn: Plot{
+				style: Style{
+					TotalHeight:   200,
+					TotalWidth:    200,
+					XDivisionsQty: 12,
+					YDivisionsQty: 12,
+					NameOfX:       "",
+					NameOfY:       "",
+				},
+				smooth: []pointArr{
+					{
+						X: []float64{1},
+						Y: []float64{},
+					},
+				},
+			},
+			err: errors.New("empty input"),
+		},
+		{
+			dataIn: Plot{
+				style: Style{
+					TotalHeight:   200,
+					TotalWidth:    200,
+					XDivisionsQty: 12,
+					YDivisionsQty: 12,
+					NameOfX:       "",
+					NameOfY:       "",
+				},
+				smooth: []pointArr{
+					{
+						X: []float64{},
+						Y: []float64{1},
+					},
+				},
+			},
+			err: errors.New("empty input"),
+		},
+		{
+			dataIn: Plot{
+				style: Style{
+					TotalHeight:   200,
+					TotalWidth:    200,
+					XDivisionsQty: 12,
+					YDivisionsQty: 12,
+					NameOfX:       "",
+					NameOfY:       "",
+				},
+				point: []pointArr{
+					{
+						X: []float64{1},
+						Y: []float64{},
+					},
+				},
+			},
+			err: errors.New("empty input"),
+		},
+		{
+			dataIn: Plot{
+				style: Style{
+					TotalHeight:   200,
+					TotalWidth:    200,
+					XDivisionsQty: 12,
+					YDivisionsQty: 12,
+					NameOfX:       "",
+					NameOfY:       "",
+				},
+				point: []pointArr{
+					{
+						X: []float64{},
+						Y: []float64{1},
+					},
+				},
+			},
+			err: errors.New("empty input"),
+		},
+		{
+			dataIn: Plot{
+				style: Style{
+					TotalHeight:   200,
+					TotalWidth:    200,
+					XDivisionsQty: 12,
+					YDivisionsQty: 12,
+					NameOfX:       "",
+					NameOfY:       "",
+				},
+				point: []pointArr{
+					{
+						X: []float64{2, 2, 5, 8},
+						Y: []float64{1, 2, 2},
+					},
+				},
+			},
+			err: errors.New("len(x)!=len(y)"),
+		},
+		{
+			dataIn: Plot{
+				style: Style{
+					TotalHeight:   200,
+					TotalWidth:    200,
+					XDivisionsQty: 12,
+					YDivisionsQty: 12,
+					NameOfX:       "",
+					NameOfY:       "",
+				},
+				smooth: []pointArr{
+					{
+						X: []float64{2, 2, 5, 8},
+						Y: []float64{1, 2, 2},
+					},
+				},
+			},
+			err: errors.New("len(x)!=len(y)"),
+		},
+		{
+			dataIn: Plot{
+				style: Style{
+					TotalHeight:   200,
+					TotalWidth:    200,
+					XDivisionsQty: 12,
+					YDivisionsQty: 12,
+					NameOfX:       "",
+					NameOfY:       "",
+				},
+				angular: []pointArr{
+					{
+						X: []float64{2, 2, 5, 8},
+						Y: []float64{1, 2, 2},
+					},
+				},
+			},
+			err: errors.New("len(x)!=len(y)"),
+		},
+		{
+			dataIn: Plot{
+				style: Style{
+					TotalHeight:   200,
+					TotalWidth:    200,
+					XDivisionsQty: 12,
+					YDivisionsQty: 12,
+					NameOfX:       "",
+					NameOfY:       "",
+					},
+					angular: []pointArr{
+					{
+						X: []float64{2, 2, 5, 8},
+						Y: []float64{},
+						},
+						},
+						},
+						err: errors.New("empty input"),
+						},
 	}
 	for key, val := range testArray {
 		doTest(val, key)
