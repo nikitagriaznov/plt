@@ -1102,16 +1102,35 @@ font-size: 12pt;
 					YDivisionsQty: 12,
 					NameOfX:       "",
 					NameOfY:       "",
-					},
-					angular: []pointArr{
+				},
+				angular: []pointArr{
 					{
 						X: []float64{2, 2, 5, 8},
-						Y: []float64{},
-						},
-						},
-						},
-						err: errors.New("empty input"),
-						},
+						Y: []float64{0, 0, 0},
+					},
+				},
+			},
+			err: errors.New("min>=max"),
+		},
+		{
+			dataIn: Plot{
+				style: Style{
+					TotalHeight:   200,
+					TotalWidth:    200,
+					XDivisionsQty: 12,
+					YDivisionsQty: 12,
+					NameOfX:       "",
+					NameOfY:       "",
+				},
+				angular: []pointArr{
+					{
+						X: []float64{0, 0, 0},
+						Y: []float64{12, 3, 4},
+					},
+				},
+			},
+			err: errors.New("min>=max"),
+		},
 	}
 	for key, val := range testArray {
 		doTest(val, key)
