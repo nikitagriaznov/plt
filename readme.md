@@ -2,7 +2,7 @@
 [![CI](https://github.com/nikitagriaznov/plt/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/nikitagriaznov/plt/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/nikk-gr/svgPlot/branch/main/graph/badge.svg?token=2WSYNM93G5)](https://codecov.io/gh/nikk-gr/svgPlot)
 ![GitHub](https://img.shields.io/github/license/nikk-gr/svgPlot)
-# svgPlot - Svg Plot Making Library for Go
+# svgPlot - Svg Plot Making Library for Go 
 svgPlot is an easy to use and lightweight svg plotting library.
 It contains two entry points:
 - `plot, err := svgPlot.DrawAngular(PlotHeight, PlotWidth, xDivisionsQty, yDivisionsQty, xArray, yArray, NameOfX, NameOfY)`
