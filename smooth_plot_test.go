@@ -438,7 +438,7 @@ font-size: 12pt;
 		}
 	}
 }
-func TestDrawSmoothFrom0(t *testing.T) {
+func TestDrawSmoothFromZero(t *testing.T) {
 	var testId uint64
 	{
 		testId = 0
@@ -480,7 +480,7 @@ font-size: 12pt;
 
 <path d="M 16.00 187.00 C 16.00,187.00 66.729,174.77 77.33,168.30 C 98.23,155.56 123.017,131.29 138.67,112.20 C 138.67,112.20 173.212,63.84 200.00,18.70 " fill="none" stroke="black" stroke-width="3" stroke-linecap="round"/>
 </svg>`
-		plot, err := DrawSmoothFrom0(200, 200, 5, 5, []float64{0, 1, 2, 3}, []float64{0, 1, 4, 9}, "x", "y")
+		plot, err := DrawSmoothFromZero(200, 200, 5, 5, []float64{0, 1, 2, 3}, []float64{0, 1, 4, 9}, "x", "y")
 		if err != nil {
 			t.Errorf("%sTest %d failed%s\tgot: %s, want: nil\n", red, testId, normal, err)
 		} else if plot != check {
@@ -530,7 +530,7 @@ font-size: 12pt;
 
 <path d="M 16.00 187.00 C 16.00,187.00 66.729,174.77 77.33,168.30 C 98.23,155.56 123.017,131.29 138.67,112.20 C 138.67,112.20 173.212,63.84 200.00,18.70 " fill="none" stroke="black" stroke-width="3" stroke-linecap="round"/>
 </svg>`
-		plot, err := DrawSmoothFrom0(200, 200, 5, 5, []float64{0, 1, 2, 3}, []float64{0, 1, 4, 9}, "x", "y")
+		plot, err := DrawSmoothFromZero(200, 200, 5, 5, []float64{0, 1, 2, 3}, []float64{0, 1, 4, 9}, "x", "y")
 		if err != nil {
 			t.Errorf("%sTest %d failed%s\tgot: %s, want: nil\n", red, testId, normal, err)
 		} else if plot != check {
@@ -543,7 +543,7 @@ font-size: 12pt;
 	{
 		testId = 3
 		t.Logf("Test %d\tstart", testId)
-		_, err := DrawSmoothFrom0(200, 400, 10, 10, []float64{3, 0, 1, 2, 3}, []float64{9, 4, 1, 0, 1, 4, 9}, "x", "y")
+		_, err := DrawSmoothFromZero(200, 400, 10, 10, []float64{3, 0, 1, 2, 3}, []float64{9, 4, 1, 0, 1, 4, 9}, "x", "y")
 		if err == nil {
 			t.Errorf("%sTest %d failed%s\tgot: nil, want: error\n", red, testId, normal)
 		} else {
@@ -553,7 +553,7 @@ font-size: 12pt;
 	{
 		testId = 4
 		t.Logf("Test %d\tstart", testId)
-		_, err := DrawSmoothFrom0(200, 400, 10, 10, []float64{}, []float64{9, 4, 1, 0, 1, 4, 9}, "x", "y")
+		_, err := DrawSmoothFromZero(200, 400, 10, 10, []float64{}, []float64{9, 4, 1, 0, 1, 4, 9}, "x", "y")
 		if err == nil {
 			t.Errorf("%sTest %d failed%s\tgot: nil, want: error\n", red, testId, normal)
 		} else {
@@ -563,7 +563,7 @@ font-size: 12pt;
 	{
 		testId = 5
 		t.Logf("Test %d\tstart", testId)
-		_, err := DrawSmoothFrom0(200, 400, 10, 10, []float64{9, 4, 1, 0, 1, 4, 9}, []float64{}, "x", "y")
+		_, err := DrawSmoothFromZero(200, 400, 10, 10, []float64{9, 4, 1, 0, 1, 4, 9}, []float64{}, "x", "y")
 		if err == nil {
 			t.Errorf("%sTest %d failed%s\tgot: nil, want: error\n", red, testId, normal)
 		} else {
@@ -573,7 +573,7 @@ font-size: 12pt;
 	{
 		testId = 5
 		t.Logf("Test %d\tstart", testId)
-		_, err := DrawSmoothFrom0(200, 400, 10, 10, []float64{1, -2, 3}, []float64{1, 2, 3}, "x", "y")
+		_, err := DrawSmoothFromZero(200, 400, 10, 10, []float64{1, -2, 3}, []float64{1, 2, 3}, "x", "y")
 		if err == nil {
 			t.Errorf("%sTest %d failed%s\tgot: nil, want: error\n", red, testId, normal)
 		} else {
@@ -583,327 +583,11 @@ font-size: 12pt;
 	{
 		testId = 5
 		t.Logf("Test %d\tstart", testId)
-		_, err := DrawSmoothFrom0(200, 400, 10, 10, []float64{1, 2, 3}, []float64{1, -2, 3}, "x", "y")
+		_, err := DrawSmoothFromZero(200, 400, 10, 10, []float64{1, 2, 3}, []float64{1, -2, 3}, "x", "y")
 		if err == nil {
 			t.Errorf("%sTest %d failed%s\tgot: nil, want: error\n", red, testId, normal)
 		} else {
 			t.Logf("%sTest %d  success%s\t%s\n", green, testId, normal, "")
 		}
-	}
-}
-
-// TestDrawSmooth with preselected style
-func TestDrawSmoothFloat64(t *testing.T) {
-	type testCase struct {
-		x, y []float64
-		s    Style
-		plot string
-		err  error
-	}
-	var testId uint64
-	doTest := func(c testCase) {
-		t.Logf("Test %d\tstart", testId)
-		plot, err := c.s.DrawSmooth(c.x, c.y)
-		if err != nil {
-			if c.err != nil {
-				t.Logf("%sTest %d  success%s\t%s\n", green, testId, normal, "")
-			} else {
-				t.Errorf("%sTest %d failed%s\twant: nil, got: %s\n", red, testId, normal, err)
-			}
-		} else {
-			if c.err != nil {
-				t.Errorf("%sTest %d failed%s\twant: %s, got: nil\n", red, testId, normal, c.err)
-			} else if c.plot != plot {
-				t.Errorf("%sTest %d failed%s\twant: %s, got: %s\n", red, testId, normal, c.plot, plot)
-				_ = os.WriteFile(fmt.Sprintf("test%d.svg", testId), []byte(plot), 777)
-			} else {
-				t.Logf("%sTest %d  success%s\t%s\n", green, testId, normal, "")
-			}
-		}
-		testId++
-	}
-	TestList := []testCase{
-		{
-			x: []float64{-3, -2, -1, 0, 1, 2, 3},
-			y: []float64{9, 4, 1, 0, 1, 4, 9},
-			s: Style{
-				TotalHeight:   300,
-				TotalWidth:    300,
-				XDivisionsQty: 0,
-				YDivisionsQty: 0,
-				NameOfX:       "x",
-				NameOfY:       "y",
-			},
-			plot: `<?xml version="1.0" encoding="UTF-8"?>
-<svg width="300" height="300" viewBox="0 0 300 300" version="1.1" xmlns="http://www.w3.org/2000/svg">
-"<style>
-.axis {
-font-family="Arial, Helvetica, sans-serif">;
-font-size: 12pt;
-}
-</style>
-<line x1="16" y1="0" x2="300" y2="0" stroke="black" />
-<text text-anchor="end" class="axis" x="12" y="9">y</text>
-<line x1="16" y1="31.89" x2="300" y2="31.89" stroke="black" />
-<text text-anchor="end" class="axis" x="12" y="35.89">8</text>
-<line x1="16" y1="63.78" x2="300" y2="63.78" stroke="black" />
-<text text-anchor="end" class="axis" x="12" y="67.78">7</text>
-<line x1="16" y1="95.67" x2="300" y2="95.67" stroke="black" />
-<text text-anchor="end" class="axis" x="12" y="99.67">6</text>
-<line x1="16" y1="127.56" x2="300" y2="127.56" stroke="black" />
-<text text-anchor="end" class="axis" x="12" y="131.56">5</text>
-<line x1="16" y1="159.44" x2="300" y2="159.44" stroke="black" />
-<text text-anchor="end" class="axis" x="12" y="163.44">4</text>
-<line x1="16" y1="191.33" x2="300" y2="191.33" stroke="black" />
-<text text-anchor="end" class="axis" x="12" y="195.33">3</text>
-<line x1="16" y1="223.22" x2="300" y2="223.22" stroke="black" />
-<text text-anchor="end" class="axis" x="12" y="227.22">2</text>
-<line x1="16" y1="255.11" x2="300" y2="255.11" stroke="black" />
-<text text-anchor="end" class="axis" x="12" y="259.11">1</text>
-<line x1="16" y1="287" x2="300" y2="287" stroke="black" />
-<text text-anchor="end" class="axis" x="12" y="291">0</text>
-<line x1="16" y1="0" x2="16" y2="287" stroke="black" />
-<text text-anchor="middle" class="axis" x="16" y="300">-3</text>
-<line x1="39.67" y1="0" x2="39.67" y2="287" stroke="black" />
-<text text-anchor="middle" class="axis" x="39.67" y="300">-2.5</text>
-<line x1="63.33" y1="0" x2="63.33" y2="287" stroke="black" />
-<text text-anchor="middle" class="axis" x="63.33" y="300">-2</text>
-<line x1="87" y1="0" x2="87" y2="287" stroke="black" />
-<text text-anchor="middle" class="axis" x="87" y="300">-1.5</text>
-<line x1="110.67" y1="0" x2="110.67" y2="287" stroke="black" />
-<text text-anchor="middle" class="axis" x="110.67" y="300">-1</text>
-<line x1="134.33" y1="0" x2="134.33" y2="287" stroke="black" />
-<text text-anchor="middle" class="axis" x="134.33" y="300">-0.5</text>
-<line x1="158" y1="0" x2="158" y2="287" stroke="black" />
-<text text-anchor="middle" class="axis" x="158" y="300">0</text>
-<line x1="181.67" y1="0" x2="181.67" y2="287" stroke="black" />
-<text text-anchor="middle" class="axis" x="181.67" y="300">0.5</text>
-<line x1="205.33" y1="0" x2="205.33" y2="287" stroke="black" />
-<text text-anchor="middle" class="axis" x="205.33" y="300">1</text>
-<line x1="229" y1="0" x2="229" y2="287" stroke="black" />
-<text text-anchor="middle" class="axis" x="229" y="300">1.5</text>
-<line x1="252.67" y1="0" x2="252.67" y2="287" stroke="black" />
-<text text-anchor="middle" class="axis" x="252.67" y="300">2</text>
-<line x1="276.33" y1="0" x2="276.33" y2="287" stroke="black" />
-<text text-anchor="middle" class="axis" x="276.33" y="300">2.5</text>
-<line x1="300" y1="0" x2="300" y2="287" stroke="black" />
-<text text-anchor="end" class="axis" x="300" y="300">x</text>
-
-<path d="M 16.00 0.00 C 16.00,0.00 51.786,128.33 63.33,159.44 C 74.41,189.30 91.888,229.81 110.67,255.11 C 120.29,268.08 143.800,287.00 158.00,287.00 C 172.20,287.00 195.712,268.08 205.33,255.11 C 224.11,229.81 241.587,189.30 252.67,159.44 C 252.67,159.44 279.991,75.18 300.00,0.00 " fill="none" stroke="black" stroke-width="3" stroke-linecap="round"/>
-</svg>`,
-		},
-		{
-			x: []float64{-3, -2, 0, 1, 2, 3},
-			y: []float64{9, 4, 1, 0, 1, 4, 9},
-			s: Style{
-				TotalHeight:   300,
-				TotalWidth:    300,
-				XDivisionsQty: 0,
-				YDivisionsQty: 0,
-				NameOfX:       "x",
-				NameOfY:       "y",
-			},
-			err: errors.New("len(x)!=len(y)"),
-		},
-		{
-			x: []float64{},
-			y: []float64{9, 4, 1, 0, 1, 4, 9},
-			s: Style{
-				TotalHeight:   300,
-				TotalWidth:    300,
-				XDivisionsQty: 0,
-				YDivisionsQty: 0,
-				NameOfX:       "x",
-				NameOfY:       "y",
-			},
-			err: errors.New("empty input"),
-		},
-		{
-			x: []float64{9, 4, 1, 0, 1, 4, 9},
-			y: []float64{},
-			s: Style{
-				TotalHeight:   300,
-				TotalWidth:    300,
-				XDivisionsQty: 0,
-				YDivisionsQty: 0,
-				NameOfX:       "x",
-				NameOfY:       "y",
-			},
-			err: errors.New("empty input"),
-		},
-	}
-	for _, val := range TestList {
-		doTest(val)
-	}
-}
-
-// TestDrawSmoothFrom0 with preselected style
-func TestDrawSmoothFloat64From0(t *testing.T) {
-	type testCase struct {
-		x, y []float64
-		s    Style
-		plot string
-		err  error
-	}
-	var testId uint64
-	doTest := func(c testCase) {
-		t.Logf("Test %d\tstart", testId)
-		plot, err := c.s.DrawSmoothFrom0(c.x, c.y)
-		if err != nil {
-			if c.err != nil {
-				t.Logf("%sTest %d  success%s\t%s\n", green, testId, normal, "")
-			} else {
-				t.Errorf("%sTest %d failed%s\twant: nil, got: %s\n", red, testId, normal, err)
-			}
-		} else {
-			if c.err != nil {
-				t.Errorf("%sTest %d failed%s\twant: %s, got: nil\n", red, testId, normal, c.err)
-			} else if c.plot != plot {
-				t.Errorf("%sTest %d failed%s\twant: %s, got: %s\n", red, testId, normal, c.plot, plot)
-				_ = os.WriteFile(fmt.Sprintf("test%d.svg", testId), []byte(plot), 777)
-			} else {
-				t.Logf("%sTest %d  success%s\t%s\n", green, testId, normal, "")
-			}
-		}
-		testId++
-	}
-	TestList := []testCase{
-		{
-			x: []float64{0, 1, 2, 3},
-			y: []float64{0, 1, 4, 9},
-			s: Style{
-				TotalHeight:   300,
-				TotalWidth:    300,
-				XDivisionsQty: 0,
-				YDivisionsQty: 0,
-				NameOfX:       "x",
-				NameOfY:       "y",
-			},
-			plot: `<?xml version="1.0" encoding="UTF-8"?>
-<svg width="300" height="300" viewBox="0 0 300 300" version="1.1" xmlns="http://www.w3.org/2000/svg">
-"<style>
-.axis {
-font-family="Arial, Helvetica, sans-serif">;
-font-size: 12pt;
-}
-</style>
-<line x1="16" y1="0" x2="300" y2="0" stroke="black" />
-<text text-anchor="end" class="axis" x="12" y="9">y</text>
-<line x1="16" y1="31.89" x2="300" y2="31.89" stroke="black" />
-<text text-anchor="end" class="axis" x="12" y="35.89">8</text>
-<line x1="16" y1="63.78" x2="300" y2="63.78" stroke="black" />
-<text text-anchor="end" class="axis" x="12" y="67.78">7</text>
-<line x1="16" y1="95.67" x2="300" y2="95.67" stroke="black" />
-<text text-anchor="end" class="axis" x="12" y="99.67">6</text>
-<line x1="16" y1="127.56" x2="300" y2="127.56" stroke="black" />
-<text text-anchor="end" class="axis" x="12" y="131.56">5</text>
-<line x1="16" y1="159.44" x2="300" y2="159.44" stroke="black" />
-<text text-anchor="end" class="axis" x="12" y="163.44">4</text>
-<line x1="16" y1="191.33" x2="300" y2="191.33" stroke="black" />
-<text text-anchor="end" class="axis" x="12" y="195.33">3</text>
-<line x1="16" y1="223.22" x2="300" y2="223.22" stroke="black" />
-<text text-anchor="end" class="axis" x="12" y="227.22">2</text>
-<line x1="16" y1="255.11" x2="300" y2="255.11" stroke="black" />
-<text text-anchor="end" class="axis" x="12" y="259.11">1</text>
-<line x1="16" y1="287" x2="300" y2="287" stroke="black" />
-<text text-anchor="end" class="axis" x="12" y="291">0</text>
-<line x1="16" y1="0" x2="16" y2="287" stroke="black" />
-<text text-anchor="middle" class="axis" x="16" y="300">0</text>
-<line x1="39.67" y1="0" x2="39.67" y2="287" stroke="black" />
-<text text-anchor="middle" class="axis" x="39.67" y="300">0.25</text>
-<line x1="63.33" y1="0" x2="63.33" y2="287" stroke="black" />
-<text text-anchor="middle" class="axis" x="63.33" y="300">0.5</text>
-<line x1="87" y1="0" x2="87" y2="287" stroke="black" />
-<text text-anchor="middle" class="axis" x="87" y="300">0.75</text>
-<line x1="110.67" y1="0" x2="110.67" y2="287" stroke="black" />
-<text text-anchor="middle" class="axis" x="110.67" y="300">1</text>
-<line x1="134.33" y1="0" x2="134.33" y2="287" stroke="black" />
-<text text-anchor="middle" class="axis" x="134.33" y="300">1.2</text>
-<line x1="158" y1="0" x2="158" y2="287" stroke="black" />
-<text text-anchor="middle" class="axis" x="158" y="300">1.5</text>
-<line x1="181.67" y1="0" x2="181.67" y2="287" stroke="black" />
-<text text-anchor="middle" class="axis" x="181.67" y="300">1.8</text>
-<line x1="205.33" y1="0" x2="205.33" y2="287" stroke="black" />
-<text text-anchor="middle" class="axis" x="205.33" y="300">2</text>
-<line x1="229" y1="0" x2="229" y2="287" stroke="black" />
-<text text-anchor="middle" class="axis" x="229" y="300">2.2</text>
-<line x1="252.67" y1="0" x2="252.67" y2="287" stroke="black" />
-<text text-anchor="middle" class="axis" x="252.67" y="300">2.5</text>
-<line x1="276.33" y1="0" x2="276.33" y2="287" stroke="black" />
-<text text-anchor="middle" class="axis" x="276.33" y="300">2.8</text>
-<line x1="300" y1="0" x2="300" y2="287" stroke="black" />
-<text text-anchor="end" class="axis" x="300" y="300">x</text>
-
-<path d="M 16.00 287.00 C 16.00,287.00 94.689,265.88 110.67,255.11 C 143.50,232.99 181.512,191.54 205.33,159.44 C 205.33,159.44 258.874,76.67 300.00,0.00 " fill="none" stroke="black" stroke-width="3" stroke-linecap="round"/>
-</svg>`,
-		},
-		{
-			x: []float64{1, 2, 3},
-			y: []float64{0, 1, 4, 9},
-			s: Style{
-				TotalHeight:   300,
-				TotalWidth:    300,
-				XDivisionsQty: 0,
-				YDivisionsQty: 0,
-				NameOfX:       "x",
-				NameOfY:       "y",
-			},
-			err: errors.New("len(x)!=len(y)"),
-		},
-		{
-			x: []float64{},
-			y: []float64{9, 4, 1, 0, 1, 4, 9},
-			s: Style{
-				TotalHeight:   300,
-				TotalWidth:    300,
-				XDivisionsQty: 0,
-				YDivisionsQty: 0,
-				NameOfX:       "x",
-				NameOfY:       "y",
-			},
-			err: errors.New("empty input"),
-		},
-		{
-			x: []float64{9, 4, 1, 0, 1, 4, 9},
-			y: []float64{},
-			s: Style{
-				TotalHeight:   300,
-				TotalWidth:    300,
-				XDivisionsQty: 0,
-				YDivisionsQty: 0,
-				NameOfX:       "x",
-				NameOfY:       "y",
-			},
-			err: errors.New("empty input"),
-		},
-		{
-			x: []float64{0, -1, 2, 3},
-			y: []float64{0, 1, 4, 9},
-			s: Style{
-				TotalHeight:   300,
-				TotalWidth:    300,
-				XDivisionsQty: 0,
-				YDivisionsQty: 0,
-				NameOfX:       "x",
-				NameOfY:       "y",
-			},
-			err: errors.New("1-th element is les, then 0"),
-		},
-		{
-			x: []float64{0, 1, 2, 3},
-			y: []float64{0, -1, 4, 9},
-			s: Style{
-				TotalHeight:   300,
-				TotalWidth:    300,
-				XDivisionsQty: 0,
-				YDivisionsQty: 0,
-				NameOfX:       "x",
-				NameOfY:       "y",
-			},
-			err: errors.New("1-th element is les, then 0"),
-		},
-	}
-	for _, val := range TestList {
-		doTest(val)
 	}
 }

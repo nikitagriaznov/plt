@@ -25,55 +25,6 @@ const (
 )
 
 // DrawAngular make the most compact plot with strait lines between points
-// X and Y is a parallel arrays of point coordinates
-func (s Style) DrawAngular(X, Y []float64) (plot string, err error) {
-	var (
-		xMin, xMax, yMin, yMax float64
-	)
-
-	// get min & max values
-	yMin, yMax, err = getMinMax(Y)
-	if err != nil {
-		return
-	}
-	xMin, xMax, err = getMinMax(X)
-	if err != nil {
-		return
-	}
-	plot, err = drawAng(s.TotalHeight, s.TotalWidth, s.XDivisionsQty, s.YDivisionsQty, X, Y, xMin, xMax, yMin, yMax, s.NameOfX, s.NameOfY)
-	return
-}
-
-// DrawAngularFrom0 make plot with strait lines between points
-// Coordinate plane starts from (0, 0) point
-// X and Y is a parallel arrays of point coordinates, only positive x and y is allowed
-func (s Style) DrawAngularFrom0(x, y []float64) (plot string, err error) {
-	var (
-		xMax, yMax float64
-	)
-	// convert x, y slices to float64
-	err = checkPositive(x)
-	if err != nil {
-		return
-	}
-	err = checkPositive(y)
-	if err != nil {
-		return
-	}
-	// get min & max values
-	_, yMax, err = getMinMax(y)
-	if err != nil {
-		return
-	}
-	_, xMax, err = getMinMax(x)
-	if err != nil {
-		return
-	}
-	plot, err = drawAng(s.TotalHeight, s.TotalWidth, s.XDivisionsQty, s.YDivisionsQty, x, y, 0, xMax, 0, yMax, s.NameOfX, s.NameOfY)
-	return
-}
-
-// DrawAngular make the most compact plot with strait lines between points
 // TotalHeight and TotalWidth defines the size of resulting picture
 // X and Y is a parallel arrays of point coordinates
 // NameOfX and NameOfY is axis labels. Max allowed length is 6 chars
@@ -97,13 +48,13 @@ func DrawAngular(TotalHeight, TotalWidth, xDivisionsQty, yDivisionsQty uint, X, 
 	return
 }
 
-// DrawAngularFrom0 make plot with strait lines between points
+// DrawAngularFromZero make plot with strait lines between points
 // Coordinate plane starts from (0, 0) point
 // TotalHeight and TotalWidth defines the size of resulting picture
 // X and Y is a parallel arrays of point coordinates, only positive x and y is allowed
 // NameOfX and NameOfY is axis labels. Max allowed length is 6 chars
 // if NameOfX or NameOfX != "" it will replace the last number on the axis
-func DrawAngularFrom0(TotalHeight, TotalWidth, xDivisionsQty, yDivisionsQty uint, x, y []float64, NameOfX, NameOfY string) (plot string, err error) {
+func DrawAngularFromZero(TotalHeight, TotalWidth, xDivisionsQty, yDivisionsQty uint, x, y []float64, NameOfX, NameOfY string) (plot string, err error) {
 	var (
 		xMax, yMax float64
 	)
