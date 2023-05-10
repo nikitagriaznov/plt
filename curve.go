@@ -76,8 +76,8 @@ func makePointCurve(x0, y0, gradX, gradY float64, x, y []float64) (curve string,
 	// make curve
 	var tmpX, tmpY string
 	for i := 0; i < len(x); i++ {
-		tmpX = strconv.FormatFloat(x0+x[i]/gradX, 'G', 2, 64)
-		tmpY = strconv.FormatFloat(y0-y[i]/gradY, 'G', 2, 64)
+		tmpX = strconv.FormatFloat(x0+x[i]/gradX, 'f', 2, 64)
+		tmpY = strconv.FormatFloat(y0-y[i]/gradY, 'f', 2, 64)
 		curve += "<circle cx=\"" + tmpX + "\" cy=\"" + tmpY + "\" r=\"5\"/>\n"
 	}
 
