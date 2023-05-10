@@ -183,13 +183,13 @@ func TestMakePointCurve(t *testing.T) {
 			gradY: 0.053475935828877004,
 			x:     []float64{-3, -2, -1, 0, 1, 2, 3},
 			y:     []float64{9, 4, 1, 0, 1, 4, 9},
-			curve: `<circle cx="81" cy="19" r="5"/>
-<circle cx="1.2E+02" cy="1.1E+02" r="5"/>
-<circle cx="1.6E+02" cy="1.7E+02" r="5"/>
-<circle cx="1.9E+02" cy="1.9E+02" r="5"/>
-<circle cx="2.3E+02" cy="1.7E+02" r="5"/>
-<circle cx="2.7E+02" cy="1.1E+02" r="5"/>
-<circle cx="3.1E+02" cy="19" r="5"/>
+			curve: `<circle cx="81.26" cy="18.70" r="5"/>
+<circle cx="118.96" cy="112.20" r="5"/>
+<circle cx="156.66" cy="168.30" r="5"/>
+<circle cx="194.36" cy="187.00" r="5"/>
+<circle cx="232.06" cy="168.30" r="5"/>
+<circle cx="269.76" cy="112.20" r="5"/>
+<circle cx="307.46" cy="18.70" r="5"/>
 `,
 		},
 		{

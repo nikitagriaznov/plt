@@ -7,9 +7,9 @@ import (
 	"fmt"
 )
 
-// DrawAngularFloat64 make the most compact plot with strait lines between points
+// DrawSmooth make the most compact plot with strait lines between points
 // X and Y is a parallel arrays of point coordinates
-func (s Style) DrawSmoothFloat64(X, Y []float64) (plot string, err error) {
+func (s Style) DrawSmooth(X, Y []float64) (plot string, err error) {
 	var (
 		xMin, xMax, yMin, yMax float64
 	)
@@ -27,56 +27,10 @@ func (s Style) DrawSmoothFloat64(X, Y []float64) (plot string, err error) {
 	return
 }
 
-// DrawAngularInt make the most compact plot with strait lines between points
-// X and Y is a parallel arrays of point coordinates
-func (s Style) DrawSmoothInt(X, Y []int) (plot string, err error) {
-	var (
-		xMin, xMax, yMin, yMax float64
-		x1, y1                 []float64
-	)
-	// convert X, Y slices to float64
-	x1, y1 = convertSliceToFloat64(X), convertSliceToFloat64(Y)
-
-	// get min & max values
-	yMin, yMax, err = getMinMax(y1)
-	if err != nil {
-		return
-	}
-	xMin, xMax, err = getMinMax(x1)
-	if err != nil {
-		return
-	}
-	plot, err = drawSmo(s.TotalHeight, s.TotalWidth, s.XDivisionsQty, s.YDivisionsQty, x1, y1, xMin, xMax, yMin, yMax, s.NameOfX, s.NameOfY)
-	return
-}
-
-// DrawAngularInt64 make the most compact plot with strait lines between points
-// X and Y is a parallel arrays of point coordinates
-func (s Style) DrawSmoothInt64(X, Y []int64) (plot string, err error) {
-	var (
-		xMin, xMax, yMin, yMax float64
-		x1, y1                 []float64
-	)
-	// convert X, Y slices to float64
-	x1, y1 = convertSliceToFloat64(X), convertSliceToFloat64(Y)
-
-	// get min & max values
-	yMin, yMax, err = getMinMax(y1)
-	if err != nil {
-		return
-	}
-	xMin, xMax, err = getMinMax(x1)
-	if err != nil {
-		return
-	}
-	plot, err = drawSmo(s.TotalHeight, s.TotalWidth, s.XDivisionsQty, s.YDivisionsQty, x1, y1, xMin, xMax, yMin, yMax, s.NameOfX, s.NameOfY)
-	return
-}
-
-// DrawAngularFloat64From0 make plot with strait lines between points
+// DrawAngularFrom0 make plot with strait lines between points
 // Coordinate plane starts from (0, 0) point
 // X and Y is a parallel arrays of point coordinates, only positive x and y is allowed
-func (s Style) DrawSmoothFloat64From0(x, y []float64) (plot string, err error) {
+func (s Style) DrawSmoothFrom0(x, y []float64) (plot string, err error) {
 	var (
 		xMax, yMax float64
 	)
@@ -102,91 +56,26 @@ func (s Style) DrawSmoothFloat64From0(x, y []float64) (plot string, err error) {
 	return
 }
 
-// DrawAngularIntFrom0 make plot with strait lines between points
-// Coordinate plane starts from (0, 0) point
-// X and Y is a parallel arrays of point coordinates, only positive x and y is allowed
-func (s Style) DrawSmoothIntFrom0(x, y []int) (plot string, err error) {
-	var (
-		xMax, yMax float64
-		x1, y1     []float64
-	)
-	// convert x, y slices to float64
-	x1, y1 = convertSliceToFloat64(x), convertSliceToFloat64(y)
-	err = checkPositive(x1)
-	if err != nil {
-		return
-	}
-	err = checkPositive(y1)
-	if err != nil {
-		return
-	}
-	// get min & max values
-	_, yMax, err = getMinMax(y1)
-	if err != nil {
-		return
-	}
-	_, xMax, err = getMinMax(x1)
-	if err != nil {
-		return
-	}
-	plot, err = drawSmo(s.TotalHeight, s.TotalWidth, s.XDivisionsQty, s.YDivisionsQty, x1, y1, 0, xMax, 0, yMax, s.NameOfX, s.NameOfY)
-	return
-}
-
-// DrawAngularInt64From0 make plot with strait lines between points
-// Coordinate plane starts from (0, 0) point
-// X and Y is a parallel arrays of point coordinates, only positive x and y is allowed
-func (s Style) DrawSmoothInt64From0(x, y []int64) (plot string, err error) {
-	var (
-		xMax, yMax float64
-		x1, y1     []float64
-	)
-	// convert x, y slices to float64
-	x1, y1 = convertSliceToFloat64(x), convertSliceToFloat64(y)
-	err = checkPositive(x1)
-	if err != nil {
-		return
-	}
-	err = checkPositive(y1)
-	if err != nil {
-		return
-	}
-	// get min & max values
-	_, yMax, err = getMinMax(y1)
-	if err != nil {
-		return
-	}
-	_, xMax, err = getMinMax(x1)
-	if err != nil {
-		return
-	}
-	plot, err = drawSmo(s.TotalHeight, s.TotalWidth, s.XDivisionsQty, s.YDivisionsQty, x1, y1, 0, xMax, 0, yMax, s.NameOfX, s.NameOfY)
-	return
-}
-
 // DrawAngular make the most compact plot with strait lines between points
 // TotalHeight and TotalWidth defines the size of resulting picture
 // X and Y is a parallel arrays of point coordinates
 // NameOfX and NameOfY is axis labels. Max allowed length is 6 chars
 // if NameOfX or NameOfX != "" it will replace the last number on the axis
-func DrawSmooth[T numeric](TotalHeight, TotalWidth, xDivisionsQty, yDivisionsQty uint, X, Y []T, NameOfX, NameOfY string) (plot string, err error) {
+func DrawSmooth(TotalHeight, TotalWidth, xDivisionsQty, yDivisionsQty uint, X, Y []float64, NameOfX, NameOfY string) (plot string, err error) {
 	var (
 		xMin, xMax, yMin, yMax float64
-		x1, y1                 []float64
 	)
-	// convert X, Y slices to float64
-	x1, y1 = convertSliceToFloat64(X), convertSliceToFloat64(Y)
 
 	// get min & max values
-	yMin, yMax, err = getMinMax(y1)
+	yMin, yMax, err = getMinMax(Y)
 	if err != nil {
 		return
 	}
-	xMin, xMax, err = getMinMax(x1)
+	xMin, xMax, err = getMinMax(X)
 	if err != nil {
 		return
 	}
-	plot, err = drawSmo(TotalHeight, TotalWidth, xDivisionsQty, yDivisionsQty, x1, y1, xMin, xMax, yMin, yMax, NameOfX, NameOfY)
+	plot, err = drawSmo(TotalHeight, TotalWidth, xDivisionsQty, yDivisionsQty, X, Y, xMin, xMax, yMin, yMax, NameOfX, NameOfY)
 	return
 }
 
@@ -196,31 +85,28 @@ func DrawSmooth[T numeric](TotalHeight, TotalWidth, xDivisionsQty, yDivisionsQty
 // X and Y is a parallel arrays of point coordinates, only positive x and y is allowed
 // NameOfX and NameOfY is axis labels. Max allowed length is 6 chars
 // if NameOfX or NameOfX != "" it will replace the last number on the axis
-func DrawSmoothFrom0[T numeric](TotalHeight, TotalWidth, xDivisionsQty, yDivisionsQty uint, x, y []T, NameOfX, NameOfY string) (plot string, err error) {
+func DrawSmoothFrom0(TotalHeight, TotalWidth, xDivisionsQty, yDivisionsQty uint, x, y []float64, NameOfX, NameOfY string) (plot string, err error) {
 	var (
 		xMax, yMax float64
-		x1, y1     []float64
 	)
-	// convert x, y slices to float64
-	x1, y1 = convertSliceToFloat64(x), convertSliceToFloat64(y)
-	err = checkPositive(x1)
+	err = checkPositive(x)
 	if err != nil {
 		return
 	}
-	err = checkPositive(y1)
+	err = checkPositive(y)
 	if err != nil {
 		return
 	}
 	// get min & max values
-	_, yMax, err = getMinMax(y1)
+	_, yMax, err = getMinMax(y)
 	if err != nil {
 		return
 	}
-	_, xMax, err = getMinMax(x1)
+	_, xMax, err = getMinMax(x)
 	if err != nil {
 		return
 	}
-	plot, err = drawSmo(TotalHeight, TotalWidth, xDivisionsQty, yDivisionsQty, x1, y1, 0, xMax, 0, yMax, NameOfX, NameOfY)
+	plot, err = drawSmo(TotalHeight, TotalWidth, xDivisionsQty, yDivisionsQty, x, y, 0, xMax, 0, yMax, NameOfX, NameOfY)
 	return
 }
 
