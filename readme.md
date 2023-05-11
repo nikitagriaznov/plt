@@ -1,6 +1,6 @@
 
-[![CI](https://github.com/nikitagriaznov/plt/actions/workflows/ci.yml/badge.svg?branch=TestAll)](https://github.com/nikitagriaznov/plt/actions/workflows/ci.yml)
-[![codecov](https://codecov.io/gh/nikk-gr/svgPlot/branch/TestAll/graph/badge.svg?token=2WSYNM93G5)](https://codecov.io/gh/nikk-gr/svgPlot)
+[![CI](https://github.com/nikk-gr/svgPlot/actions/workflows/ci.yml/badge.svg)](https://github.com/nikk-gr/svgPlot/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/nikk-gr/svgPlot/branch/main/graph/badge.svg?token=2WSYNM93G5)](https://codecov.io/gh/nikk-gr/svgPlot)
 ![GitHub](https://img.shields.io/github/license/nikk-gr/svgPlot)
 
 # svgPlot - Svg Plot Making Library for Go 
@@ -52,7 +52,7 @@ func TestAll() {
 	_ = os.WriteFile("smooth.svg", []byte(plot), 777)
 }
 ```
-![DrawSmooth](./.github/img/smooth.svg "DrawSmooth")
+![DrawSmooth](./.github/img/smooth.png "DrawSmooth")
 ### DrawSmoothFromZero
 **DrawSmoothFromZero** makes a plot where points are joined with a smooth curve
 The greed of the plot starts from the zero point.
@@ -78,7 +78,7 @@ func TestAll() {
 	_ = os.WriteFile("smooth_from_zero.svg", []byte(plot), 777)
 }
 ```
-![DrawSmoothFromZero](./.github/img/smooth_from_zero.svg "DrawSmoothFromZero")
+![DrawSmoothFromZero](./.github/img/smooth_from_zero.png "DrawSmoothFromZero")
 ### DrawPoint
 **DrawPoint** makes a plot where points are not joined and indicated by the small circles
 The greed of the plot starts from the smallest values of xArray and yArray.
@@ -103,7 +103,7 @@ func TestAll() {
 	_ = os.WriteFile("point.svg", []byte(plot), 777)
 }
 ```
-![DrawPoint](./.github/img/point.svg "DrawPoint")
+![DrawPoint](./.github/img/point.png "DrawPoint")
 ### DrawPointFromZero
 **DrawPointFromZero** makes a plot where points are not joined and indicated by the small circles
 The greed of the plot starts from the zero point.
@@ -129,7 +129,7 @@ func TestAll() {
 	_ = os.WriteFile("point_from_zero.svg", []byte(plot), 777)
 }
 ```
-![DrawPointFromZero](./.github/img/point_from_zero.svg "DrawPointFromZero")
+![DrawPointFromZero](./.github/img/point_from_zero.png "DrawPointFromZero")
 ### DrawAngular
 **DrawAngular** makes a plot where points are joined with strait lines
 The greed of the plot starts from the smallest values of xArray and yArray.
@@ -154,7 +154,7 @@ func TestAll() {
 	_ = os.WriteFile("angular.svg", []byte(plot), 777)
 }
 ```
-![DrawAngular](./.github/img/angular.svg "DrawAngular")
+![DrawAngular](./.github/img/angular.png "DrawAngular")
 ### DrawAngularFromZero
 **DrawAngularFromZero** makes a plot where points are joined with strait lines
 The greed of the plot starts from the zero point.
@@ -180,7 +180,7 @@ func TestAll() {
 	_ = os.WriteFile("angular_from_zero.svg", []byte(plot), 777)
 }
 ```
-![DrawAngularFromZero](./.github/img/angular_from_zero.svg "DrawAngularFromZero")
+![DrawAngularFromZero](./.github/img/angular_from_zero.png "DrawAngularFromZero")
 ### Combined Plot
 The **Combined plot** is a plot with a combination of angular lines, smooth curves and point plots
 
@@ -209,5 +209,5 @@ func TestAll() {
 	_ = os.WriteFile("combined_from_zero.svg", []byte(svgFromZero), 777)
 }
 ```
-![Draw](./.github/img/combined.svg "Draw")
-![DrawFromZero](./.github/img/combined_from_zero.svg "DrawFromZero")
+![Draw](./.github/img/combined.png "Draw")
+![DrawFromZero](./.github/img/combined_from_zero.png "DrawFromZero")
