@@ -1,7 +1,7 @@
-
-[![CI](https://github.com/nikitagriaznov/plt/actions/workflows/ci.yml/badge.svg?branch=TestAll)](https://github.com/nikitagriaznov/plt/actions/workflows/ci.yml)
-[![codecov](https://codecov.io/gh/nikk-gr/svgPlot/branch/TestAll/graph/badge.svg?token=2WSYNM93G5)](https://codecov.io/gh/nikk-gr/svgPlot)
+[![CI](https://github.com/nikk-gr/svgPlot/actions/workflows/ci.yml/badge.svg)](https://github.com/nikk-gr/svgPlot/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/nikk-gr/svgPlot/branch/main/graph/badge.svg?token=2WSYNM93G5)](https://codecov.io/gh/nikk-gr/svgPlot)
 ![GitHub](https://img.shields.io/github/license/nikk-gr/svgPlot)
+
 
 # svgPlot - Svg Plot Making Library for Go 
 svgPlot is an easy to use and lightweight svg plotting library.
