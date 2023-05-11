@@ -181,8 +181,6 @@ func makeGreed(height, width uint, xNumArray []string, yNumArray []string, xLen,
 		return
 	}
 
-	// Add text styles
-	greed += "<style>\n.axis {\nfont-family: \"Arial, Helvetica, sans-serif\";\nfont-size: 12;\n}\n</style>\n"
 	// make horizontal greed
 	{
 		x1 := paddingLeft
@@ -192,11 +190,8 @@ func makeGreed(height, width uint, xNumArray []string, yNumArray []string, xLen,
 		for i := 0; i < len(yNumArray); i++ {
 			y1 := fmt.Sprint(math.Round(y*100) / 100)
 			greed += fmt.Sprintf("<line x1=\"%d\" y1=\"%s\" x2=\"%d\" y2=\"%s\" stroke=\"black\" />\n", x1, y1, x2, y1)
-			if i == 0 {
-				greed += fmt.Sprintf("<text text-anchor=\"end\" class=\"axis\" x=\"%d\" y=\"%s\">%s</text>\n", xt, fmt.Sprint(math.Round((y+textHeight)*100)/100), yNumArray[len(yNumArray)-1-i])
-			} else {
-				greed += fmt.Sprintf("<text text-anchor=\"end\" class=\"axis\" x=\"%d\" y=\"%s\">%s</text>\n", xt, fmt.Sprint(math.Round((y+textHeight/2)*100)/100), yNumArray[len(yNumArray)-1-i])
-			}
+			greed += fmt.Sprintf("<text fill=\"#000000\" fill-rule=\"nonzero\" font-family=\"ArialMT, Arial\" text-anchor=\"end\" font-size=\"12\" font-weight=\"normal\"><tspan text-anchor=\"end\" x=\"%d\" y=\"%s\">%s</tspan></text>\n", xt, fmt.Sprint(math.Round((y+textHeight/2)*100)/100), yNumArray[len(yNumArray)-1-i])
+
 			y += verticalStep
 		}
 	}
@@ -209,11 +204,7 @@ func makeGreed(height, width uint, xNumArray []string, yNumArray []string, xLen,
 		for i := 0; i < len(xNumArray); i++ {
 			x1 := fmt.Sprint(math.Round(x*100) / 100)
 			greed += fmt.Sprintf("<line x1=\"%s\" y1=\"%d\" x2=\"%s\" y2=\"%d\" stroke=\"black\" />\n", x1, y1, x1, y2)
-			if i != len(xNumArray)-1 {
-				greed += fmt.Sprintf("<text text-anchor=\"middle\" class=\"axis\" x=\"%s\" y=\"%d\">%s</text>\n", x1, yt, fmt.Sprint(xNumArray[i]))
-			} else {
-				greed += fmt.Sprintf("<text text-anchor=\"end\" class=\"axis\" x=\"%s\" y=\"%d\">%s</text>\n", x1, yt, fmt.Sprint(xNumArray[i]))
-			}
+			greed += fmt.Sprintf("<text fill=\"#000000\" fill-rule=\"nonzero\" font-family=\"ArialMT, Arial\" text-anchor=\"middle\" font-size=\"12\" font-weight=\"normal\"><tspan text-anchor=\"middle\" x=\"%s\" y=\"%d\">%s</tspan></text>\n", x1, yt, fmt.Sprint(xNumArray[i]))
 			x += horizontalStep
 		}
 	}

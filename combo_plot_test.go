@@ -1474,7 +1474,91 @@ func TestPlot_DrawFromZero(t *testing.T) {
 	}
 }
 
-func TestPlot_Draw2(t *testing.T) {
+//	func TestPlot_Draw2(t *testing.T) {
+//		ex1()
+//		ex2()
+//		ex3()
+//		ex4()
+//		ex5()
+//		ex6()
+//		ex7()
+//	}
+func ex1() {
+
+	TotalHeight := uint(200) // px
+	TotalWidth := uint(400)  // px
+	xDivisionsQty := uint(10)
+	yDivisionsQty := uint(10)
+	NameOfX := string("x")
+	NameOfY := string("y")
+	xArray := []float64{-3, -2, -1, 0, 1, 2, 3}
+	yArray := []float64{9, 4, 1, 0, 1, 4, 9}
+	plot, _ := DrawSmooth(TotalHeight, TotalWidth, xDivisionsQty, yDivisionsQty, xArray, yArray, NameOfX, NameOfY)
+	_ = os.WriteFile("smooth.svg", []byte(plot), 777)
+
+}
+func ex2() {
+	TotalHeight := uint(200) // px
+	TotalWidth := uint(400)  // px
+	xDivisionsQty := uint(10)
+	yDivisionsQty := uint(10)
+	NameOfX := string("x")
+	NameOfY := string("y")
+	xArray := []float64{1, 2, 3, 4, 5, 6, 7}
+	yArray := []float64{9, 4, 1, 0, 1, 4, 9}
+	plot, _ := DrawSmoothFromZero(TotalHeight, TotalWidth, xDivisionsQty, yDivisionsQty, xArray, yArray, NameOfX, NameOfY)
+	_ = os.WriteFile("smooth_from_zero.svg", []byte(plot), 777)
+
+}
+func ex3() {
+	TotalHeight := uint(200) // px
+	TotalWidth := uint(400)  // px
+	xDivisionsQty := uint(10)
+	yDivisionsQty := uint(10)
+	NameOfX := string("x")
+	NameOfY := string("y")
+	xArray := []float64{-3, -2, -1, 0, 1, 2, 3}
+	yArray := []float64{9, 4, 1, 0, 1, 4, 9}
+	plot, _ := DrawPoint(TotalHeight, TotalWidth, xDivisionsQty, yDivisionsQty, xArray, yArray, NameOfX, NameOfY)
+	_ = os.WriteFile("point.svg", []byte(plot), 777)
+}
+func ex4() {
+	TotalHeight := uint(200) // px
+	TotalWidth := uint(400)  // px
+	xDivisionsQty := uint(10)
+	yDivisionsQty := uint(10)
+	NameOfX := string("x")
+	NameOfY := string("y")
+	xArray := []float64{1, 2, 3, 4, 5, 6, 7}
+	yArray := []float64{9, 4, 1, 0, 1, 4, 9}
+	plot, _ := DrawPointFromZero(TotalHeight, TotalWidth, xDivisionsQty, yDivisionsQty, xArray, yArray, NameOfX, NameOfY)
+	_ = os.WriteFile("point_from_zero.svg", []byte(plot), 777)
+}
+func ex5() {
+	TotalHeight := uint(200) // px
+	TotalWidth := uint(400)  // px
+	xDivisionsQty := uint(10)
+	yDivisionsQty := uint(10)
+	NameOfX := string("x")
+	NameOfY := string("y")
+	xArray := []float64{-3, -2, -1, 0, 1, 2, 3}
+	yArray := []float64{9, 4, 1, 0, 1, 4, 9}
+	plot, _ := DrawAngular(TotalHeight, TotalWidth, xDivisionsQty, yDivisionsQty, xArray, yArray, NameOfX, NameOfY)
+	_ = os.WriteFile("angular.svg", []byte(plot), 777)
+}
+func ex6() {
+	TotalHeight := uint(200) // px
+	TotalWidth := uint(400)  // px
+	xDivisionsQty := uint(10)
+	yDivisionsQty := uint(10)
+	NameOfX := string("x")
+	NameOfY := string("y")
+	xArray := []float64{1, 2, 3, 4, 5, 6, 7}
+	yArray := []float64{9, 4, 1, 0, 1, 4, 9}
+	plot, _ := DrawAngularFromZero(TotalHeight, TotalWidth, xDivisionsQty, yDivisionsQty, xArray, yArray, NameOfX, NameOfY)
+	_ = os.WriteFile("angular_from_zero.svg", []byte(plot), 777)
+}
+func ex7() {
 	// Creating the new plot 200x400 px 10 divisions on each side
 	plot, _ := NewPlot(200, 400, 10, 10, "x", "y")
 	// Add smooth parabola plot
@@ -1485,6 +1569,8 @@ func TestPlot_Draw2(t *testing.T) {
 	_ = plot.AddAngular([]float64{1, 1, 7, 7}, []float64{10, 1, 1, 10})
 	// generate svg
 	svg, _ := plot.Draw()
+	svgFromZero, _ := plot.DrawFromZero()
 	// write it to the disk
 	_ = os.WriteFile("combined.svg", []byte(svg), 777)
+	_ = os.WriteFile("combined_from_zero.svg", []byte(svgFromZero), 777)
 }

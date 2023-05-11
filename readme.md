@@ -1,6 +1,6 @@
 
-[![CI](https://github.com/nikitagriaznov/plt/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/nikitagriaznov/plt/actions/workflows/ci.yml)
-[![codecov](https://codecov.io/gh/nikk-gr/svgPlot/branch/main/graph/badge.svg?token=2WSYNM93G5)](https://codecov.io/gh/nikk-gr/svgPlot)
+[![CI](https://github.com/nikitagriaznov/plt/actions/workflows/ci.yml/badge.svg?branch=TestAll)](https://github.com/nikitagriaznov/plt/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/nikk-gr/svgPlot/branch/TestAll/graph/badge.svg?token=2WSYNM93G5)](https://codecov.io/gh/nikk-gr/svgPlot)
 ![GitHub](https://img.shields.io/github/license/nikk-gr/svgPlot)
 
 # svgPlot - Svg Plot Making Library for Go 
@@ -32,14 +32,14 @@ float64Slice := svgPlot.ConvertSliceToFloat64(intSlice)
 **DrawSmooth** makes a plot where points are joined with a smooth curve
 The greed of the plot starts from the smallest values of xArray and yArray.
 ```go
-package main
+package TestAll
 
 import (
 	"github.com/nikk-gr/svgPlot"
 	"os"
 )
 
-func main() {
+func TestAll() {
 	TotalHeight := uint(200) // px
 	TotalWidth := uint(400)  // px
 	xDivisionsQty := uint(10)
@@ -58,14 +58,14 @@ func main() {
 The greed of the plot starts from the zero point.
 Only positive values of X and Y arrays are allowed
 ```go
-package main
+package TestAll
 
 import (
 	"github.com/nikk-gr/svgPlot"
 	"os"
 )
 
-func main() {
+func TestAll() {
 	TotalHeight := uint(200) // px
 	TotalWidth := uint(400)  // px
 	xDivisionsQty := uint(10)
@@ -83,14 +83,14 @@ func main() {
 **DrawPoint** makes a plot where points are not joined and indicated by the small circles
 The greed of the plot starts from the smallest values of xArray and yArray.
 ```go
-package main
+package TestAll
 
 import (
 	"github.com/nikk-gr/svgPlot"
 	"os"
 )
 
-func main() {
+func TestAll() {
 	TotalHeight := uint(200) // px
 	TotalWidth := uint(400)  // px
 	xDivisionsQty := uint(10)
@@ -109,14 +109,14 @@ func main() {
 The greed of the plot starts from the zero point.
 Only positive values of X and Y arrays are allowed
 ```go
-package main
+package TestAll
 
 import (
 	"github.com/nikk-gr/svgPlot"
 	"os"
 )
 
-func main() {
+func TestAll() {
 	TotalHeight := uint(200) // px
 	TotalWidth := uint(400)  // px
 	xDivisionsQty := uint(10)
@@ -134,14 +134,14 @@ func main() {
 **DrawAngular** makes a plot where points are joined with strait lines
 The greed of the plot starts from the smallest values of xArray and yArray.
 ```go
-package main
+package TestAll
 
 import (
 	"github.com/nikk-gr/svgPlot"
 	"os"
 )
 
-func main() {
+func TestAll() {
 	TotalHeight := uint(200) // px
 	TotalWidth := uint(400)  // px
 	xDivisionsQty := uint(10)
@@ -160,14 +160,14 @@ func main() {
 The greed of the plot starts from the zero point.
 Only positive values of X and Y arrays are allowed
 ```go
-package main
+package TestAll
 
 import (
 	"github.com/nikk-gr/svgPlot"
 	"os"
 )
 
-func main() {
+func TestAll() {
 	TotalHeight := uint(200) // px
 	TotalWidth := uint(400)  // px
 	xDivisionsQty := uint(10)
@@ -185,14 +185,14 @@ func main() {
 The **Combined plot** is a plot with a combination of angular lines, smooth curves and point plots
 
 ```go
-package main
+package TestAll
 
 import (
 	"github.com/nikk-gr/svgPlot"
 	"os"
 )
 
-func main() {
+func TestAll() {
 	// Creating the new plot 200x400 px 10 divisions on each side
 	plot, _ := svgPlot.NewPlot(200, 400, 10, 10, "x", "y")
 	// Add smooth parabola plot
