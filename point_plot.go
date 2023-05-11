@@ -30,13 +30,13 @@ func DrawPoint(TotalHeight, TotalWidth, xDivisionsQty, yDivisionsQty uint, X, Y 
 	return
 }
 
-// DrawPointFrom0 make plot with strait lines between points
+// DrawPointFromZero make plot with strait lines between points
 // Coordinate plane starts from (0, 0) point
 // TotalHeight and TotalWidth defines the size of resulting picture
 // X and Y is a parallel arrays of point coordinates, only positive x and y is allowed
 // NameOfX and NameOfY is axis labels. Max allowed length is 6 chars
 // if NameOfX or NameOfX != "" it will replace the last number on the axis
-func DrawPointFrom0(TotalHeight, TotalWidth, xDivisionsQty, yDivisionsQty uint, x, y []float64, NameOfX, NameOfY string) (plot string, err error) {
+func DrawPointFromZero(TotalHeight, TotalWidth, xDivisionsQty, yDivisionsQty uint, x, y []float64, NameOfX, NameOfY string) (plot string, err error) {
 	var (
 		xMax, yMax float64
 	)

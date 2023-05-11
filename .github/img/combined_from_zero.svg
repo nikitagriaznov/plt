@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="200" viewBox="0 0 400 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
+"<style>
+.axis {
+font-family="Arial, Helvetica, sans-serif">;
+font-size: 12pt;
+}
+</style>
+<line x1="16" y1="0" x2="400" y2="0" stroke="black" />
+<text text-anchor="end" class="axis" x="12" y="9">y</text>
+<line x1="16" y1="18.7" x2="400" y2="18.7" stroke="black" />
+<text text-anchor="end" class="axis" x="12" y="22.7">9</text>
+<line x1="16" y1="37.4" x2="400" y2="37.4" stroke="black" />
+<text text-anchor="end" class="axis" x="12" y="41.4">8</text>
+<line x1="16" y1="56.1" x2="400" y2="56.1" stroke="black" />
+<text text-anchor="end" class="axis" x="12" y="60.1">7</text>
+<line x1="16" y1="74.8" x2="400" y2="74.8" stroke="black" />
+<text text-anchor="end" class="axis" x="12" y="78.8">6</text>
+<line x1="16" y1="93.5" x2="400" y2="93.5" stroke="black" />
+<text text-anchor="end" class="axis" x="12" y="97.5">5</text>
+<line x1="16" y1="112.2" x2="400" y2="112.2" stroke="black" />
+<text text-anchor="end" class="axis" x="12" y="116.2">4</text>
+<line x1="16" y1="130.9" x2="400" y2="130.9" stroke="black" />
+<text text-anchor="end" class="axis" x="12" y="134.9">3</text>
+<line x1="16" y1="149.6" x2="400" y2="149.6" stroke="black" />
+<text text-anchor="end" class="axis" x="12" y="153.6">2</text>
+<line x1="16" y1="168.3" x2="400" y2="168.3" stroke="black" />
+<text text-anchor="end" class="axis" x="12" y="172.3">1</text>
+<line x1="16" y1="187" x2="400" y2="187" stroke="black" />
+<text text-anchor="end" class="axis" x="12" y="191">0</text>
+<line x1="16" y1="0" x2="16" y2="187" stroke="black" />
+<text text-anchor="middle" class="axis" x="16" y="200">0</text>
+<line x1="70.86" y1="0" x2="70.86" y2="187" stroke="black" />
+<text text-anchor="middle" class="axis" x="70.86" y="200">1</text>
+<line x1="125.71" y1="0" x2="125.71" y2="187" stroke="black" />
+<text text-anchor="middle" class="axis" x="125.71" y="200">2</text>
+<line x1="180.57" y1="0" x2="180.57" y2="187" stroke="black" />
+<text text-anchor="middle" class="axis" x="180.57" y="200">3</text>
+<line x1="235.43" y1="0" x2="235.43" y2="187" stroke="black" />
+<text text-anchor="middle" class="axis" x="235.43" y="200">4</text>
+<line x1="290.29" y1="0" x2="290.29" y2="187" stroke="black" />
+<text text-anchor="middle" class="axis" x="290.29" y="200">5</text>
+<line x1="345.14" y1="0" x2="345.14" y2="187" stroke="black" />
+<text text-anchor="middle" class="axis" x="345.14" y="200">6</text>
+<line x1="400" y1="0" x2="400" y2="187" stroke="black" />
+<text text-anchor="end" class="axis" x="400" y="200">x</text>
+
+<path d="M 70.85714285714286 0 L 70.85714285714286 168.3 L 400 168.3 L 400 0" fill="none" stroke="black" stroke-width="3"/>
+<circle cx="235.43" cy="168.30" r="5"/>
+
+<path d="M 70.86 0.00 C 70.86,0.00 112.959,76.11 125.71,93.50 C 139.50,112.29 161.503,136.60 180.57,149.60 C 194.42,159.04 218.971,168.30 235.43,168.30 C 251.89,168.30 276.440,159.04 290.29,149.60 C 309.35,136.60 331.361,112.29 345.14,93.50 C 345.14,93.50 376.184,44.94 400.00,0.00 " fill="none" stroke="black" stroke-width="3" stroke-linecap="round"/>
+
+</svg>

@@ -389,7 +389,7 @@ font-size: 12pt;
 		}
 	}
 }
-func TestDrawPointFrom0(t *testing.T) {
+func TestDrawPointFromZero(t *testing.T) {
 	var testId uint64
 	{
 		testId = 0
@@ -435,12 +435,12 @@ font-size: 12pt;
 <circle cx="200.00" cy="18.70" r="5"/>
 
 </svg>`
-		plot, err := DrawPointFrom0(200, 200, 5, 5, []float64{0, 1, 2, 3}, []float64{0, 1, 4, 9}, "x", "y")
+		plot, err := DrawPointFromZero(200, 200, 5, 5, []float64{0, 1, 2, 3}, []float64{0, 1, 4, 9}, "x", "y")
 		if err != nil {
 			t.Errorf("%sTest %d failed%s\tgot: %s, want: nil\n", red, testId, normal, err)
 		} else if plot != check {
 			t.Errorf("%sTest %d failed%s\tgot: %s, want: %s\n", red, testId, normal, plot, check)
-			_ = os.WriteFile(fmt.Sprintf("TestDrawPointFrom0-%d.svg", testId), []byte(plot), 777)
+			_ = os.WriteFile(fmt.Sprintf("TestDrawPointFromZero-%d.svg", testId), []byte(plot), 777)
 		} else {
 			t.Logf("%sTest %d  success%s\t%s\n", green, testId, normal, "")
 		}
@@ -489,12 +489,12 @@ font-size: 12pt;
 <circle cx="200.00" cy="18.70" r="5"/>
 
 </svg>`
-		plot, err := DrawPointFrom0(200, 200, 5, 5, []float64{0, 1, 2, 3}, []float64{0, 1, 4, 9}, "x", "y")
+		plot, err := DrawPointFromZero(200, 200, 5, 5, []float64{0, 1, 2, 3}, []float64{0, 1, 4, 9}, "x", "y")
 		if err != nil {
 			t.Errorf("%sTest %d failed%s\tgot: %s, want: nil\n", red, testId, normal, err)
 		} else if plot != check {
 			t.Errorf("%sTest %d failed%s\tgot: %s, want: %s\n", red, testId, normal, plot, check)
-			_ = os.WriteFile(fmt.Sprintf("TestDrawPointFrom0-%d.svg", testId), []byte(plot), 777)
+			_ = os.WriteFile(fmt.Sprintf("TestDrawPointFromZero-%d.svg", testId), []byte(plot), 777)
 		} else {
 			t.Logf("%sTest %d  success%s\t%s\n", green, testId, normal, "")
 		}
@@ -502,7 +502,7 @@ font-size: 12pt;
 	{
 		testId = 3
 		t.Logf("Test %d\tstart", testId)
-		_, err := DrawPointFrom0(200, 400, 10, 10, []float64{3, 0, 1, 2, 3}, []float64{9, 4, 1, 0, 1, 4, 9}, "x", "y")
+		_, err := DrawPointFromZero(200, 400, 10, 10, []float64{3, 0, 1, 2, 3}, []float64{9, 4, 1, 0, 1, 4, 9}, "x", "y")
 		if err == nil {
 			t.Errorf("%sTest %d failed%s\tgot: nil, want: error\n", red, testId, normal)
 		} else {
@@ -512,7 +512,7 @@ font-size: 12pt;
 	{
 		testId = 4
 		t.Logf("Test %d\tstart", testId)
-		_, err := DrawPointFrom0(200, 400, 10, 10, []float64{}, []float64{9, 4, 1, 0, 1, 4, 9}, "x", "y")
+		_, err := DrawPointFromZero(200, 400, 10, 10, []float64{}, []float64{9, 4, 1, 0, 1, 4, 9}, "x", "y")
 		if err == nil {
 			t.Errorf("%sTest %d failed%s\tgot: nil, want: error\n", red, testId, normal)
 		} else {
@@ -522,7 +522,7 @@ font-size: 12pt;
 	{
 		testId = 5
 		t.Logf("Test %d\tstart", testId)
-		_, err := DrawPointFrom0(200, 400, 10, 10, []float64{9, 4, 1, 0, 1, 4, 9}, []float64{}, "x", "y")
+		_, err := DrawPointFromZero(200, 400, 10, 10, []float64{9, 4, 1, 0, 1, 4, 9}, []float64{}, "x", "y")
 		if err == nil {
 			t.Errorf("%sTest %d failed%s\tgot: nil, want: error\n", red, testId, normal)
 		} else {
@@ -532,7 +532,7 @@ font-size: 12pt;
 	{
 		testId = 5
 		t.Logf("Test %d\tstart", testId)
-		_, err := DrawPointFrom0(200, 400, 10, 10, []float64{1, -2, 3}, []float64{1, 2, 3}, "x", "y")
+		_, err := DrawPointFromZero(200, 400, 10, 10, []float64{1, -2, 3}, []float64{1, 2, 3}, "x", "y")
 		if err == nil {
 			t.Errorf("%sTest %d failed%s\tgot: nil, want: error\n", red, testId, normal)
 		} else {
@@ -542,7 +542,7 @@ font-size: 12pt;
 	{
 		testId = 5
 		t.Logf("Test %d\tstart", testId)
-		_, err := DrawPointFrom0(200, 400, 10, 10, []float64{1, 2, 3}, []float64{1, -2, 3}, "x", "y")
+		_, err := DrawPointFromZero(200, 400, 10, 10, []float64{1, 2, 3}, []float64{1, -2, 3}, "x", "y")
 		if err == nil {
 			t.Errorf("%sTest %d failed%s\tgot: nil, want: error\n", red, testId, normal)
 		} else {

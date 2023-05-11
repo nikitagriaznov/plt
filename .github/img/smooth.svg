@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="400" height="200" viewBox="0 0 400 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
-<style>
+"<style>
 .axis {
-font-family="Arial, Helvetica, sans-serif";
-font-size: "12pt";
+font-family="Arial, Helvetica, sans-serif">;
+font-size: 12pt;
 }
 </style>
 <line x1="16" y1="0" x2="400" y2="0" stroke="black" />
@@ -53,5 +53,5 @@ font-size: "12pt";
 <line x1="400" y1="0" x2="400" y2="187" stroke="black" />
 <text text-anchor="end" class="axis" x="400" y="200">x</text>
 
-<path d="M 16 0 L 80 103.88888888888889 L 144 166.22222222222223 L 208 187 L 272 166.22222222222223 L 336 103.88888888888889 L 400 0" fill="none" stroke="black" stroke-width="3"/>
+<path d="M 16.00 0.00 C 16.00,0.00 65.191,84.66 80.00,103.89 C 96.19,124.91 121.953,151.91 144.00,166.22 C 160.35,176.84 188.800,187.00 208.00,187.00 C 227.20,187.00 255.647,176.84 272.00,166.22 C 294.05,151.91 319.813,124.91 336.00,103.89 C 336.00,103.89 372.142,50.03 400.00,0.00 " fill="none" stroke="black" stroke-width="3" stroke-linecap="round"/>
 </svg>
