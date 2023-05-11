@@ -182,7 +182,7 @@ func makeGreed(height, width uint, xNumArray []string, yNumArray []string, xLen,
 	}
 
 	// Add text styles
-	greed += "<style>\n.axis {\nfont-family=\"Arial, sans-serif\">;\nfont-size: 12pt;\n}\n</style>\n"
+	greed += "<style>\n.axis {\nfont-family: \"Arial, Helvetica, sans-serif\";\nfont-size: 12;\n}\n</style>\n"
 	// make horizontal greed
 	{
 		x1 := paddingLeft

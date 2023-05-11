@@ -2,8 +2,8 @@
 <svg width="400" height="200" viewBox="0 0 400 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
 "<style>
 .axis {
-font-family="Arial, sans-serif";
-font-size: 12;
+    font-family: "Arial, Heleveca, sans-serif";
+    font-size: 12;
 }
 </style>
 <line x1="16" y1="5" x2="395" y2="5" stroke="black" />
