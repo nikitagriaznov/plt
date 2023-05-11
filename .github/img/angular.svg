@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="400" height="200" viewBox="0 0 400 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
-"<style>
-.axis {
+    <defs>
+        <style type="text/css">
+            @import url('https://fonts.cdnfonts.com/css/arial-2')
+        </style>
+    </defs>
+    <style>
+    .axis {
     font-family: "Arial, Heleveca, sans-serif";
     font-size: 12;
-</style>
+    }
+    </style>
 <line x1="16" y1="5" x2="395" y2="5" stroke="black" />
 <text text-anchor="end" class="axis" x="12" y="14">y</text>
 <line x1="16" y1="25.22" x2="395" y2="25.22" stroke="black" />
