@@ -152,10 +152,10 @@ func makeGreed(height, width uint, xNumArray []string, yNumArray []string, xLen,
 
 	// count paddings
 	const (
-		textHeight    = 9
-		paddingTop    = 0 // height af arial 12 digits
+		textHeight    = 9 // height af arial 12 digits
+		paddingTop    = 5
 		paddingBottom = textHeight + textHeight/2
-		paddingRight  = 0
+		paddingRight  = 5
 	)
 	var (
 		paddingLeft int
@@ -182,7 +182,7 @@ func makeGreed(height, width uint, xNumArray []string, yNumArray []string, xLen,
 	}
 
 	// Add text styles
-	greed += "<style>\n.axis {\nfont-family=\"Arial, Helvetica, sans-serif\">;\nfont-size: 12pt;\n}\n</style>\n"
+	greed += "<style>\n.axis {\nfont-family=\"Arial, sans-serif\">;\nfont-size: 12pt;\n}\n</style>\n"
 	// make horizontal greed
 	{
 		x1 := paddingLeft
@@ -218,7 +218,7 @@ func makeGreed(height, width uint, xNumArray []string, yNumArray []string, xLen,
 		}
 	}
 	x0 = float64(paddingLeft) + float64(xZeroPos)*horizontalStep
-	y0 = float64(height-paddingBottom) + float64(yZeroPos)*verticalStep
+	y0 = float64(height-paddingBottom) - float64(yZeroPos)*verticalStep
 	gradX = xLen / float64(int(width)-paddingRight-paddingLeft)
 	gradY = yLen / float64(int(height)-paddingTop-paddingBottom)
 	return

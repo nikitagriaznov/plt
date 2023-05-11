@@ -5,6 +5,7 @@ package svgPlot
 import (
 	"errors"
 	"fmt"
+	"os"
 	"testing"
 )
 
@@ -140,17 +141,18 @@ func TestMakeGreed(t *testing.T) {
 		greed, x0, y0, gradX, gradY, err := makeGreed(t1.height, t1.width, t1.xNumArray, t1.yNumArray, t1.xLen, t1.yLen, t1.xZeroPos, t1.yZeroPos)
 
 		if fmt.Sprint(err) != fmt.Sprint(t1.err) {
-			t.Errorf("%sTest %d failed%s\tgot: %s, want: %s\n", red, testId, normal, t1.err, err)
+			t.Errorf("%sTest %d failed%s\twant: %s, got: %s\n", red, testId, normal, t1.err, err)
 		} else if greed != t1.greed {
-			t.Errorf("%sTest %d failed%s\tgot: %s, want: %s\n", red, testId, normal, t1.greed, greed)
+			t.Errorf("%sTest %d failed%s\twant: %s, got: %s\n", red, testId, normal, t1.greed, greed)
+			_ = os.WriteFile(fmt.Sprintf("TestMakeGreed%d.svg", testId), []byte(greed), 777)
 		} else if x0 != t1.x0 {
-			t.Errorf("%sTest %d failed%s\tgot: %g, want: %g\n", red, testId, normal, t1.x0, x0)
+			t.Errorf("%sTest %d failed%s\twant: %g, got: %g\n", red, testId, normal, t1.x0, x0)
 		} else if y0 != t1.y0 {
-			t.Errorf("%sTest %d failed%s\tgot: %g, want: %g\n", red, testId, normal, t1.y0, y0)
+			t.Errorf("%sTest %d failed%s\twant: %g, got: %g\n", red, testId, normal, t1.y0, y0)
 		} else if gradX != t1.gradX {
-			t.Errorf("%sTest %d failed%s\tgot: %g, want: %g\n", red, testId, normal, t1.gradX, gradX)
+			t.Errorf("%sTest %d failed%s\twant: %g, got: %g\n", red, testId, normal, t1.gradX, gradX)
 		} else if gradY != t1.gradY {
-			t.Errorf("%sTest %d failed%s\tgot: %g, want: %g\n", red, testId, normal, t1.gradY, gradY)
+			t.Errorf("%sTest %d failed%s\twant: %g, got: %g\n", red, testId, normal, t1.gradY, gradY)
 		} else {
 			t.Logf("%sTest %d  success%s\t%s\n", green, testId, normal, "")
 		}
@@ -166,63 +168,11 @@ func TestMakeGreed(t *testing.T) {
 			yLen:      10,
 			xZeroPos:  5,
 			yZeroPos:  0,
-			greed: `<style>
-.axis {
-font-family="Arial, Helvetica, sans-serif">;
-font-size: 12pt;
-}
-</style>
-<line x1="23" y1="0" x2="400" y2="0" stroke="black" />
-<text text-anchor="end" class="axis" x="19" y="9">10</text>
-<line x1="23" y1="18.7" x2="400" y2="18.7" stroke="black" />
-<text text-anchor="end" class="axis" x="19" y="22.7">9</text>
-<line x1="23" y1="37.4" x2="400" y2="37.4" stroke="black" />
-<text text-anchor="end" class="axis" x="19" y="41.4">8</text>
-<line x1="23" y1="56.1" x2="400" y2="56.1" stroke="black" />
-<text text-anchor="end" class="axis" x="19" y="60.1">7</text>
-<line x1="23" y1="74.8" x2="400" y2="74.8" stroke="black" />
-<text text-anchor="end" class="axis" x="19" y="78.8">6</text>
-<line x1="23" y1="93.5" x2="400" y2="93.5" stroke="black" />
-<text text-anchor="end" class="axis" x="19" y="97.5">5</text>
-<line x1="23" y1="112.2" x2="400" y2="112.2" stroke="black" />
-<text text-anchor="end" class="axis" x="19" y="116.2">4</text>
-<line x1="23" y1="130.9" x2="400" y2="130.9" stroke="black" />
-<text text-anchor="end" class="axis" x="19" y="134.9">3</text>
-<line x1="23" y1="149.6" x2="400" y2="149.6" stroke="black" />
-<text text-anchor="end" class="axis" x="19" y="153.6">2</text>
-<line x1="23" y1="168.3" x2="400" y2="168.3" stroke="black" />
-<text text-anchor="end" class="axis" x="19" y="172.3">1</text>
-<line x1="23" y1="187" x2="400" y2="187" stroke="black" />
-<text text-anchor="end" class="axis" x="19" y="191">0</text>
-<line x1="23" y1="0" x2="23" y2="187" stroke="black" />
-<text text-anchor="middle" class="axis" x="23" y="200">-5</text>
-<line x1="57.27" y1="0" x2="57.27" y2="187" stroke="black" />
-<text text-anchor="middle" class="axis" x="57.27" y="200">-4</text>
-<line x1="91.55" y1="0" x2="91.55" y2="187" stroke="black" />
-<text text-anchor="middle" class="axis" x="91.55" y="200">-3</text>
-<line x1="125.82" y1="0" x2="125.82" y2="187" stroke="black" />
-<text text-anchor="middle" class="axis" x="125.82" y="200">-2</text>
-<line x1="160.09" y1="0" x2="160.09" y2="187" stroke="black" />
-<text text-anchor="middle" class="axis" x="160.09" y="200">-1</text>
-<line x1="194.36" y1="0" x2="194.36" y2="187" stroke="black" />
-<text text-anchor="middle" class="axis" x="194.36" y="200">0</text>
-<line x1="228.64" y1="0" x2="228.64" y2="187" stroke="black" />
-<text text-anchor="middle" class="axis" x="228.64" y="200">1</text>
-<line x1="262.91" y1="0" x2="262.91" y2="187" stroke="black" />
-<text text-anchor="middle" class="axis" x="262.91" y="200">2</text>
-<line x1="297.18" y1="0" x2="297.18" y2="187" stroke="black" />
-<text text-anchor="middle" class="axis" x="297.18" y="200">3</text>
-<line x1="331.45" y1="0" x2="331.45" y2="187" stroke="black" />
-<text text-anchor="middle" class="axis" x="331.45" y="200">4</text>
-<line x1="365.73" y1="0" x2="365.73" y2="187" stroke="black" />
-<text text-anchor="middle" class="axis" x="365.73" y="200">4</text>
-<line x1="400" y1="0" x2="400" y2="187" stroke="black" />
-<text text-anchor="end" class="axis" x="400" y="200">5</text>
-`,
-			x0:    194.36363636363637,
-			y0:    187,
-			gradX: 0.026525198938992044,
-			gradY: 0.053475935828877004,
+			greed:     TestMakeGreed0,
+			x0:        192.0909090909091,
+			y0:        187,
+			gradX:     0.026881720430107527,
+			gradY:     0.054945054945054944,
 		},
 		{
 			height:    50,
