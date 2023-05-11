@@ -2,48 +2,48 @@
 <svg width="400" height="200" viewBox="0 0 400 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
 "<style>
 .axis {
-    font-family: "Arial, Heleveca, sans-serif";
-    font-size: 12;
+font-family: "Arial, Helvetica, sans-serif";
+font-size: 12;
 }
 </style>
 <line x1="16" y1="5" x2="395" y2="5" stroke="black" />
-<text text-anchor="end" class="axis" x="12" y="14">y</text>
+<text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="middle" font-size="12" font-weight="normal"><tspan text-anchor="middle" x="12" y="9">y</tspan></text>
 <line x1="16" y1="23.2" x2="395" y2="23.2" stroke="black" />
-<text text-anchor="end" class="axis" x="12" y="27.2">9</text>
+<text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="middle" font-size="12" font-weight="normal"><tspan text-anchor="middle" x="12" y="27.2">9</tspan></text>
 <line x1="16" y1="41.4" x2="395" y2="41.4" stroke="black" />
-<text text-anchor="end" class="axis" x="12" y="45.4">8</text>
+<text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="middle" font-size="12" font-weight="normal"><tspan text-anchor="middle" x="12" y="45.4">8</tspan></text>
 <line x1="16" y1="59.6" x2="395" y2="59.6" stroke="black" />
-<text text-anchor="end" class="axis" x="12" y="63.6">7</text>
+<text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="middle" font-size="12" font-weight="normal"><tspan text-anchor="middle" x="12" y="63.6">7</tspan></text>
 <line x1="16" y1="77.8" x2="395" y2="77.8" stroke="black" />
-<text text-anchor="end" class="axis" x="12" y="81.8">6</text>
+<text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="middle" font-size="12" font-weight="normal"><tspan text-anchor="middle" x="12" y="81.8">6</tspan></text>
 <line x1="16" y1="96" x2="395" y2="96" stroke="black" />
-<text text-anchor="end" class="axis" x="12" y="100">5</text>
+<text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="middle" font-size="12" font-weight="normal"><tspan text-anchor="middle" x="12" y="100">5</tspan></text>
 <line x1="16" y1="114.2" x2="395" y2="114.2" stroke="black" />
-<text text-anchor="end" class="axis" x="12" y="118.2">4</text>
+<text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="middle" font-size="12" font-weight="normal"><tspan text-anchor="middle" x="12" y="118.2">4</tspan></text>
 <line x1="16" y1="132.4" x2="395" y2="132.4" stroke="black" />
-<text text-anchor="end" class="axis" x="12" y="136.4">3</text>
+<text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="middle" font-size="12" font-weight="normal"><tspan text-anchor="middle" x="12" y="136.4">3</tspan></text>
 <line x1="16" y1="150.6" x2="395" y2="150.6" stroke="black" />
-<text text-anchor="end" class="axis" x="12" y="154.6">2</text>
+<text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="middle" font-size="12" font-weight="normal"><tspan text-anchor="middle" x="12" y="154.6">2</tspan></text>
 <line x1="16" y1="168.8" x2="395" y2="168.8" stroke="black" />
-<text text-anchor="end" class="axis" x="12" y="172.8">1</text>
+<text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="middle" font-size="12" font-weight="normal"><tspan text-anchor="middle" x="12" y="172.8">1</tspan></text>
 <line x1="16" y1="187" x2="395" y2="187" stroke="black" />
-<text text-anchor="end" class="axis" x="12" y="191">0</text>
+<text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="middle" font-size="12" font-weight="normal"><tspan text-anchor="middle" x="12" y="191">0</tspan></text>
 <line x1="16" y1="5" x2="16" y2="187" stroke="black" />
-<text text-anchor="middle" class="axis" x="16" y="200">0</text>
+<text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="middle" font-size="12" font-weight="normal"><tspan text-anchor="middle" x="16" y="200">0</tspan></text>
 <line x1="70.14" y1="5" x2="70.14" y2="187" stroke="black" />
-<text text-anchor="middle" class="axis" x="70.14" y="200">1</text>
+<text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="middle" font-size="12" font-weight="normal"><tspan text-anchor="middle" x="70.14" y="200">1</tspan></text>
 <line x1="124.29" y1="5" x2="124.29" y2="187" stroke="black" />
-<text text-anchor="middle" class="axis" x="124.29" y="200">2</text>
+<text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="middle" font-size="12" font-weight="normal"><tspan text-anchor="middle" x="124.29" y="200">2</tspan></text>
 <line x1="178.43" y1="5" x2="178.43" y2="187" stroke="black" />
-<text text-anchor="middle" class="axis" x="178.43" y="200">3</text>
+<text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="middle" font-size="12" font-weight="normal"><tspan text-anchor="middle" x="178.43" y="200">3</tspan></text>
 <line x1="232.57" y1="5" x2="232.57" y2="187" stroke="black" />
-<text text-anchor="middle" class="axis" x="232.57" y="200">4</text>
+<text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="middle" font-size="12" font-weight="normal"><tspan text-anchor="middle" x="232.57" y="200">4</tspan></text>
 <line x1="286.71" y1="5" x2="286.71" y2="187" stroke="black" />
-<text text-anchor="middle" class="axis" x="286.71" y="200">5</text>
+<text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="middle" font-size="12" font-weight="normal"><tspan text-anchor="middle" x="286.71" y="200">5</tspan></text>
 <line x1="340.86" y1="5" x2="340.86" y2="187" stroke="black" />
-<text text-anchor="middle" class="axis" x="340.86" y="200">6</text>
+<text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="middle" font-size="12" font-weight="normal"><tspan text-anchor="middle" x="340.86" y="200">6</tspan></text>
 <line x1="395" y1="5" x2="395" y2="187" stroke="black" />
-<text text-anchor="end" class="axis" x="395" y="200">x</text>
+<text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="middle" font-size="12" font-weight="normal"><tspan text-anchor="middle" x="395" y="200">x</tspan></text>
 
 <path d="M 70.14285714285714 5 L 70.14285714285714 168.8 L 395 168.8 L 395 5" fill="none" stroke="black" stroke-width="3"/>
 <circle cx="232.57" cy="168.80" r="5"/>
