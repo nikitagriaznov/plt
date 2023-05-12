@@ -9,6 +9,12 @@ import (
 	"testing"
 )
 
+const (
+	red    string = "\x1b[31m"
+	green  string = "\x1b[32m"
+	normal string = "\x1b[0m"
+)
+
 func TestConvertSliceToFloat64(t *testing.T) {
 	equal := func(a, b []float64) bool {
 		if len(a) != len(b) {

@@ -219,7 +219,7 @@ func (s *Plot) Draw() (result string, err error) {
 		plot += tmpStr + "\n"
 	}
 	result = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
-	result += fmt.Sprintf("<svg width=\"%d\" height=\"%d\" viewBox=\"0 0 %d %d\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\">\n\"", s.style.TotalWidth, s.style.TotalHeight, s.style.TotalWidth, s.style.TotalHeight)
+	result += fmt.Sprintf("<svg width=\"%d\" height=\"%d\" viewBox=\"0 0 %d %d\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\">\n", s.style.TotalWidth, s.style.TotalHeight, s.style.TotalWidth, s.style.TotalHeight)
 	result += greed + "\n"
 	result += plot + "\n"
 	result += "</svg>"
@@ -370,7 +370,7 @@ func (s *Plot) DrawFromZero() (result string, err error) {
 		plot += tmpStr + "\n"
 	}
 	result = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
-	result += fmt.Sprintf("<svg width=\"%d\" height=\"%d\" viewBox=\"0 0 %d %d\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\">\n\"", s.style.TotalWidth, s.style.TotalHeight, s.style.TotalWidth, s.style.TotalHeight)
+	result += fmt.Sprintf("<svg width=\"%d\" height=\"%d\" viewBox=\"0 0 %d %d\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\">\n", s.style.TotalWidth, s.style.TotalHeight, s.style.TotalWidth, s.style.TotalHeight)
 	result += greed + "\n"
 	result += plot + "\n"
 	result += "</svg>"

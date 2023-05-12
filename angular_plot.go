@@ -18,12 +18,6 @@ type (
 	}
 )
 
-const (
-	red    string = "\x1b[31m"
-	green  string = "\x1b[32m"
-	normal string = "\x1b[0m"
-)
-
 // DrawAngular make the most compact plot with strait lines between points
 // TotalHeight and TotalWidth defines the size of resulting picture
 // X and Y is a parallel arrays of point coordinates
@@ -139,7 +133,7 @@ func drawAng(height, width, xDivisionsQty, yDivisionsQty uint, x, y []float64, x
 		return
 	}
 	result = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
-	result += fmt.Sprintf("<svg width=\"%d\" height=\"%d\" viewBox=\"0 0 %d %d\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\">\n\"", width, height, width, height)
+	result += fmt.Sprintf("<svg width=\"%d\" height=\"%d\" viewBox=\"0 0 %d %d\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\">\n", width, height, width, height)
 	result += greed + "\n"
 	result += plot + "\n"
 	result += "</svg>"

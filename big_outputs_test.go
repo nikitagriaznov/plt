@@ -3,7 +3,7 @@ package svgPlot
 const (
 TestDrawAng0=`<?xml version="1.0" encoding="UTF-8"?>
 <svg width="400" height="200" viewBox="0 0 400 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
-"<line x1="16" y1="5" x2="395" y2="5" stroke="black" />
+<line x1="16" y1="5" x2="395" y2="5" stroke="black" />
 <text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="end" font-size="12" font-weight="normal"><tspan text-anchor="end" x="12" y="9">y</tspan></text>
 <line x1="16" y1="23.2" x2="395" y2="23.2" stroke="black" />
 <text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="end" font-size="12" font-weight="normal"><tspan text-anchor="end" x="12" y="27.2">9</tspan></text>
@@ -52,7 +52,7 @@ TestDrawAng0=`<?xml version="1.0" encoding="UTF-8"?>
 </svg>`
 TestDrawAng1=`<?xml version="1.0" encoding="UTF-8"?>
 <svg width="400" height="200" viewBox="0 0 400 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
-"<line x1="23" y1="5" x2="395" y2="5" stroke="black" />
+<line x1="23" y1="5" x2="395" y2="5" stroke="black" />
 <text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="end" font-size="12" font-weight="normal"><tspan text-anchor="end" x="19" y="9">10</tspan></text>
 <line x1="23" y1="23.2" x2="395" y2="23.2" stroke="black" />
 <text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="end" font-size="12" font-weight="normal"><tspan text-anchor="end" x="19" y="27.2">9</tspan></text>
@@ -101,7 +101,7 @@ TestDrawAng1=`<?xml version="1.0" encoding="UTF-8"?>
 </svg>`
 TestDrawAngular0=`<?xml version="1.0" encoding="UTF-8"?>
 <svg width="400" height="200" viewBox="0 0 400 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
-"<line x1="16" y1="5" x2="395" y2="5" stroke="black" />
+<line x1="16" y1="5" x2="395" y2="5" stroke="black" />
 <text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="end" font-size="12" font-weight="normal"><tspan text-anchor="end" x="12" y="9">y</tspan></text>
 <line x1="16" y1="25.22" x2="395" y2="25.22" stroke="black" />
 <text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="end" font-size="12" font-weight="normal"><tspan text-anchor="end" x="12" y="29.22">8</tspan></text>
@@ -152,7 +152,7 @@ TestDrawAngular0=`<?xml version="1.0" encoding="UTF-8"?>
 </svg>`
 TestDrawAngularFromZero0=`<?xml version="1.0" encoding="UTF-8"?>
 <svg width="400" height="200" viewBox="0 0 400 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
-"<line x1="16" y1="5" x2="395" y2="5" stroke="black" />
+<line x1="16" y1="5" x2="395" y2="5" stroke="black" />
 <text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="end" font-size="12" font-weight="normal"><tspan text-anchor="end" x="12" y="9">y</tspan></text>
 <line x1="16" y1="25.22" x2="395" y2="25.22" stroke="black" />
 <text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="end" font-size="12" font-weight="normal"><tspan text-anchor="end" x="12" y="29.22">8</tspan></text>
@@ -203,7 +203,7 @@ TestDrawAngularFromZero0=`<?xml version="1.0" encoding="UTF-8"?>
 </svg>`
 TestDrawPo0=`<?xml version="1.0" encoding="UTF-8"?>
 <svg width="400" height="200" viewBox="0 0 400 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
-"<line x1="16" y1="5" x2="395" y2="5" stroke="black" />
+<line x1="16" y1="5" x2="395" y2="5" stroke="black" />
 <text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="end" font-size="12" font-weight="normal"><tspan text-anchor="end" x="12" y="9">y</tspan></text>
 <line x1="16" y1="23.2" x2="395" y2="23.2" stroke="black" />
 <text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="end" font-size="12" font-weight="normal"><tspan text-anchor="end" x="12" y="27.2">9</tspan></text>
@@ -259,7 +259,7 @@ TestDrawPo0=`<?xml version="1.0" encoding="UTF-8"?>
 </svg>`
 TestDrawPo1=`<?xml version="1.0" encoding="UTF-8"?>
 <svg width="400" height="200" viewBox="0 0 400 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
-"<line x1="23" y1="5" x2="395" y2="5" stroke="black" />
+<line x1="23" y1="5" x2="395" y2="5" stroke="black" />
 <text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="end" font-size="12" font-weight="normal"><tspan text-anchor="end" x="19" y="9">10</tspan></text>
 <line x1="23" y1="23.2" x2="395" y2="23.2" stroke="black" />
 <text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="end" font-size="12" font-weight="normal"><tspan text-anchor="end" x="19" y="27.2">9</tspan></text>
@@ -315,7 +315,7 @@ TestDrawPo1=`<?xml version="1.0" encoding="UTF-8"?>
 </svg>`
 TestDrawPoint0=`<?xml version="1.0" encoding="UTF-8"?>
 <svg width="400" height="200" viewBox="0 0 400 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
-"<line x1="16" y1="5" x2="395" y2="5" stroke="black" />
+<line x1="16" y1="5" x2="395" y2="5" stroke="black" />
 <text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="end" font-size="12" font-weight="normal"><tspan text-anchor="end" x="12" y="9">y</tspan></text>
 <line x1="16" y1="25.22" x2="395" y2="25.22" stroke="black" />
 <text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="end" font-size="12" font-weight="normal"><tspan text-anchor="end" x="12" y="29.22">8</tspan></text>
@@ -373,7 +373,7 @@ TestDrawPoint0=`<?xml version="1.0" encoding="UTF-8"?>
 </svg>`
 TestDrawPointFromZero0=`<?xml version="1.0" encoding="UTF-8"?>
 <svg width="400" height="200" viewBox="0 0 400 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
-"<line x1="16" y1="5" x2="395" y2="5" stroke="black" />
+<line x1="16" y1="5" x2="395" y2="5" stroke="black" />
 <text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="end" font-size="12" font-weight="normal"><tspan text-anchor="end" x="12" y="9">y</tspan></text>
 <line x1="16" y1="25.22" x2="395" y2="25.22" stroke="black" />
 <text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="end" font-size="12" font-weight="normal"><tspan text-anchor="end" x="12" y="29.22">8</tspan></text>
@@ -428,7 +428,7 @@ TestDrawPointFromZero0=`<?xml version="1.0" encoding="UTF-8"?>
 </svg>`
 TestDrawSmo0=`<?xml version="1.0" encoding="UTF-8"?>
 <svg width="400" height="200" viewBox="0 0 400 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
-"<line x1="16" y1="5" x2="395" y2="5" stroke="black" />
+<line x1="16" y1="5" x2="395" y2="5" stroke="black" />
 <text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="end" font-size="12" font-weight="normal"><tspan text-anchor="end" x="12" y="9">y</tspan></text>
 <line x1="16" y1="23.2" x2="395" y2="23.2" stroke="black" />
 <text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="end" font-size="12" font-weight="normal"><tspan text-anchor="end" x="12" y="27.2">9</tspan></text>
@@ -477,7 +477,7 @@ TestDrawSmo0=`<?xml version="1.0" encoding="UTF-8"?>
 </svg>`
 TestDrawSmo1=`<?xml version="1.0" encoding="UTF-8"?>
 <svg width="400" height="200" viewBox="0 0 400 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
-"<line x1="23" y1="5" x2="395" y2="5" stroke="black" />
+<line x1="23" y1="5" x2="395" y2="5" stroke="black" />
 <text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="end" font-size="12" font-weight="normal"><tspan text-anchor="end" x="19" y="9">10</tspan></text>
 <line x1="23" y1="23.2" x2="395" y2="23.2" stroke="black" />
 <text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="end" font-size="12" font-weight="normal"><tspan text-anchor="end" x="19" y="27.2">9</tspan></text>
@@ -526,7 +526,7 @@ TestDrawSmo1=`<?xml version="1.0" encoding="UTF-8"?>
 </svg>`
 TestDrawSmooth0=`<?xml version="1.0" encoding="UTF-8"?>
 <svg width="400" height="200" viewBox="0 0 400 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
-"<line x1="16" y1="5" x2="395" y2="5" stroke="black" />
+<line x1="16" y1="5" x2="395" y2="5" stroke="black" />
 <text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="end" font-size="12" font-weight="normal"><tspan text-anchor="end" x="12" y="9">y</tspan></text>
 <line x1="16" y1="25.22" x2="395" y2="25.22" stroke="black" />
 <text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="end" font-size="12" font-weight="normal"><tspan text-anchor="end" x="12" y="29.22">8</tspan></text>
@@ -577,7 +577,7 @@ TestDrawSmooth0=`<?xml version="1.0" encoding="UTF-8"?>
 </svg>`
 TestDrawSmoothFromZero0=`<?xml version="1.0" encoding="UTF-8"?>
 <svg width="400" height="200" viewBox="0 0 400 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
-"<line x1="16" y1="5" x2="395" y2="5" stroke="black" />
+<line x1="16" y1="5" x2="395" y2="5" stroke="black" />
 <text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="end" font-size="12" font-weight="normal"><tspan text-anchor="end" x="12" y="9">y</tspan></text>
 <line x1="16" y1="25.22" x2="395" y2="25.22" stroke="black" />
 <text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="end" font-size="12" font-weight="normal"><tspan text-anchor="end" x="12" y="29.22">8</tspan></text>
@@ -675,7 +675,7 @@ TestMakeGreed0=`<line x1="23" y1="5" x2="395" y2="5" stroke="black" />
 `
 TestPlot_Draw0=`<?xml version="1.0" encoding="UTF-8"?>
 <svg width="200" height="200" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
-"<line x1="16" y1="5" x2="195" y2="5" stroke="black" />
+<line x1="16" y1="5" x2="195" y2="5" stroke="black" />
 <text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="end" font-size="12" font-weight="normal"><tspan text-anchor="end" x="12" y="9">y</tspan></text>
 <line x1="16" y1="23.2" x2="195" y2="23.2" stroke="black" />
 <text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="end" font-size="12" font-weight="normal"><tspan text-anchor="end" x="12" y="27.2">9</tspan></text>
@@ -741,7 +741,7 @@ TestPlot_Draw0=`<?xml version="1.0" encoding="UTF-8"?>
 </svg>`
 TestPlot_Draw1=`<?xml version="1.0" encoding="UTF-8"?>
 <svg width="200" height="200" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
-"<line x1="23" y1="5" x2="195" y2="5" stroke="black" />
+<line x1="23" y1="5" x2="195" y2="5" stroke="black" />
 <text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="end" font-size="12" font-weight="normal"><tspan text-anchor="end" x="19" y="9">10</tspan></text>
 <line x1="23" y1="23.2" x2="195" y2="23.2" stroke="black" />
 <text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="end" font-size="12" font-weight="normal"><tspan text-anchor="end" x="19" y="27.2">9</tspan></text>
@@ -807,7 +807,7 @@ TestPlot_Draw1=`<?xml version="1.0" encoding="UTF-8"?>
 </svg>`
 TestPlot_DrawFromZero0=`<?xml version="1.0" encoding="UTF-8"?>
 <svg width="300" height="300" viewBox="0 0 300 300" version="1.1" xmlns="http://www.w3.org/2000/svg">
-"<line x1="16" y1="5" x2="295" y2="5" stroke="black" />
+<line x1="16" y1="5" x2="295" y2="5" stroke="black" />
 <text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="end" font-size="12" font-weight="normal"><tspan text-anchor="end" x="12" y="9">y</tspan></text>
 <line x1="16" y1="33.2" x2="295" y2="33.2" stroke="black" />
 <text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="end" font-size="12" font-weight="normal"><tspan text-anchor="end" x="12" y="37.2">9</tspan></text>
@@ -858,7 +858,7 @@ TestPlot_DrawFromZero0=`<?xml version="1.0" encoding="UTF-8"?>
 </svg>`
 TestPlot_DrawFromZero1=`<?xml version="1.0" encoding="UTF-8"?>
 <svg width="300" height="300" viewBox="0 0 300 300" version="1.1" xmlns="http://www.w3.org/2000/svg">
-"<line x1="23" y1="5" x2="295" y2="5" stroke="black" />
+<line x1="23" y1="5" x2="295" y2="5" stroke="black" />
 <text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="end" font-size="12" font-weight="normal"><tspan text-anchor="end" x="19" y="9">10</tspan></text>
 <line x1="23" y1="33.2" x2="295" y2="33.2" stroke="black" />
 <text fill="#000000" fill-rule="nonzero" font-family="ArialMT, Arial" text-anchor="end" font-size="12" font-weight="normal"><tspan text-anchor="end" x="19" y="37.2">9</tspan></text>
