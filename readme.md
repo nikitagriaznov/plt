@@ -7,7 +7,7 @@
 svgPlot is an easy to use and lightweight svg plotting library.
 Use the following command to get it:
 ```bash
-go get github.com/nikk-gr/svgPlot@v1.0.0
+go get github.com/nikk-gr/svgPlot
 ```
 ## Parameters description
 `TotalHeight` and `TotalWidth` are the sizes of the resulting picture in px.
